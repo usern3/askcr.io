@@ -11,9 +11,9 @@ If you would like to donate to the project and help pay the server and domain bi
 Thank you for reading! Oh and here's some preview screen caps below!
 
 ### Screenshots of Progress
-[![home page][https://i.ibb.co/7b1XSqb/Fire-Shot-Capture-058-Ask-cr-Welcome-to-Ask-cr-localhost.png]][https://ibb.co/7b1XSqb]
-[![dashboard][https://i.ibb.co/wCmHSys/Fire-Shot-Capture-061-Ask-cr-Welcome-localhost.png]][https://ibb.co/wCmHSys]
-[![question view][https://i.ibb.co/D8C51Yh/Fire-Shot-Capture-064-Ask-cr-Test-Question-6-localhost.png]][https://ibb.co/D8C51Yh]
+[![home page](https://i.ibb.co/7b1XSqb/Fire-Shot-Capture-058-Ask-cr-Welcome-to-Ask-cr-localhost.png)](https://ibb.co/7b1XSqb) 
+[![dashboard](https://i.ibb.co/wCmHSys/Fire-Shot-Capture-061-Ask-cr-Welcome-localhost.png)](https://ibb.co/wCmHSys) 
+[![question view](https://i.ibb.co/D8C51Yh/Fire-Shot-Capture-064-Ask-cr-Test-Question-6-localhost.png)](https://ibb.co/D8C51Yh)
 
 ### Learning Lucky
 
