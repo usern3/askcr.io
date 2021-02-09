@@ -10,7 +10,7 @@ jobs:
   check-format:
     runs-on: ubuntu-latest
     container:
-      image: crystallang/crystal:0.35.1-alpine
+      image: crystallang/crystal:0.36.0-alpine
     steps:
       - uses: actions/checkout@v2
       - name: Format
@@ -19,7 +19,7 @@ jobs:
   specs:
     runs-on: ubuntu-latest
     container:
-      image: crystallang/crystal:0.35.1
+      image: crystallang/crystal:0.36.0
     env:
       LUCKY_ENV: test
       DB_HOST: postgres
@@ -42,7 +42,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - name: "Install yarn"
+    - name: Install yarn
       run: npm install -g yarn
 
     - name: Get yarn cache directory path
@@ -86,19 +86,5 @@ jobs:
     - name: Compiling assets
       run: yarn prod
 
-    - name: Run tests
-      run: crystal spec
-
-  build:
-
-    runs-on: ubuntu-latest
-
-    container:
-      image: crystallang/crystal
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: shards install
     - name: Run tests
       run: crystal spec
