@@ -3,7 +3,7 @@ class Shared::TagSpan < BaseComponent
   needs separated : Bool
   needs count : Int32 = 3
 
-  def render 
+  def render
     if separated?
       render_double
     else
@@ -34,7 +34,7 @@ class Shared::TagSpan < BaseComponent
     end
   end
 
-  def render_double 
+  def render_double
     span do
       if !question.tags.empty?
         tags = question.tags.first(count)

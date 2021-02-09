@@ -1,5 +1,4 @@
 class Shared::AuthHeaderNav < BaseComponent
-  
   def render_links
     a "About", class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-gray-700 dark:text-gray-200 font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-700", href: "#"
     link "Questions", to: Questions::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-gray-700 dark:text-gray-200 font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-700"
@@ -7,7 +6,7 @@ class Shared::AuthHeaderNav < BaseComponent
     a "Contact", class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-gray-700 dark:text-gray-200 font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-700", href: "#"
     a "Crystal Lang", href: "https://crystal-lang.org/", target: "_blank", class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-gray-700 dark:text-gray-200 font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-700"
   end
-  
+
   def render
     nav class: "bg-white dark:bg-gray-800 shadow" do
       div class: "container mx-auto px-6 py-3" do
@@ -26,7 +25,7 @@ class Shared::AuthHeaderNav < BaseComponent
           end
           div class: "hidden md:flex md:items-center md:justify-between flex-1" do
             div class: "flex flex-col -mx-4 md:flex-row md:items-center md:mx-8" do
-             render_links
+              render_links
             end
           end
         end

@@ -4,16 +4,16 @@ class Questions::IndexPage < MainLayout
   quick_def page_title, "All Questions"
 
   def content
-    div class: "container mx-auto mt-4 min-h-screen px-6" do 
+    div class: "container mx-auto mt-4 min-h-screen px-6" do
       div class: "w-full max-w-2xl mx-auto" do
         div class: "grid grid-flow-row auto-rows-max gap-4" do
           div class: "grid grid-cols-8" do
-            div class: "col-span-4 align-baseline" do 
+            div class: "col-span-4 align-baseline" do
               h1 "Latest Questions", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
               small "Page #{pages.page}"
             end
             div class: "col-span-4 align-baseline" do
-              link to: Questions::New, class: "inline-flex items-center py-2 px-4 mt-4 bg-gray-700 text-white rounded hover:bg-gray-600 focus:outline-none float-right", type: "button" do 
+              link to: Questions::New, class: "inline-flex items-center py-2 px-4 mt-4 bg-gray-700 text-white rounded hover:bg-gray-600 focus:outline-none float-right", type: "button" do
                 tag "svg", class: "inline mr-2 h-5 w-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
                   tag "path", d: "M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
                 end
@@ -21,8 +21,8 @@ class Questions::IndexPage < MainLayout
               end
             end
           end
-            render_questions
-            mount Shared::PaginationLinks, pages: pages, page_type: "questions"
+          render_questions
+          mount Shared::PaginationLinks, pages: pages, page_type: "questions"
         end
       end
     end
@@ -55,7 +55,7 @@ class Questions::IndexPage < MainLayout
       end
     end
   end
-  
+
   def pluralize_reply(size)
     if size > 1 || size == 0
       "#{size} replies"

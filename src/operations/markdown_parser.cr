@@ -1,5 +1,4 @@
 module Markdown
-  
   def self.parse(body : String)
     options = Markd::Options.new(smart: true, safe: true, prettyprint: true)
     document = Markd::Parser.parse(body, options)
@@ -7,10 +6,8 @@ module Markdown
 
     html = renderer.render(document)
   end
-
-  
-
 end
+
 class CustomRenderer < Markd::Renderer
   include Markd
   @disable_tag = 0

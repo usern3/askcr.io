@@ -4,11 +4,11 @@ class Questions::EditPage < MainLayout
   quick_def page_title, "Edit Question with id: #{question.id}"
 
   def content
-    div class: "container mx-auto mt-4 min-h-screen px-6" do 
+    div class: "container mx-auto mt-4 min-h-screen px-6" do
       div class: "w-full max-w-2xl mx-auto" do
         div class: "grid grid-flow-row auto-rows-max gap-4" do
           div class: "grid grid-cols-8" do
-            div class: "col-span-6 align-baseline" do 
+            div class: "col-span-6 align-baseline" do
               h1 "Editing \"#{question.title}\"", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
             end
             div class: "col-span-2" do
@@ -22,7 +22,7 @@ class Questions::EditPage < MainLayout
             div do
               mount Shared::Field, operation.body, &.textarea(rows: "10")
             end
-            div do 
+            div do
               tags = [] of String
               question.tags.each do |tag|
                 tags << tag.name

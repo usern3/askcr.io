@@ -6,7 +6,7 @@ class Questions::ShowPage < MainLayout
   quick_def page_title, question.title
 
   def content
-    div class: "container mx-auto mt-4 min-h-screen px-6" do 
+    div class: "container mx-auto mt-4 min-h-screen px-6" do
       div class: "w-full max-w-2xl mx-auto" do
         div class: "grid grid-flow-row auto-rows-max gap-4" do
           div class: "grid grid-cols-8" do
@@ -20,7 +20,7 @@ class Questions::ShowPage < MainLayout
                   text "Edit"
                 end
               end
-              link to: Questions::Answers::New.with(question.id), class: "inline-flex items-center py-2 px-4 mt-1 ml-4 bg-gray-700 text-white rounded hover:bg-gray-600 focus:outline-none", type: "button" do 
+              link to: Questions::Answers::New.with(question.id), class: "inline-flex items-center py-2 px-4 mt-1 ml-4 bg-gray-700 text-white rounded hover:bg-gray-600 focus:outline-none", type: "button" do
                 tag "svg", class: "inline mr-1 h-5 w-5", fill: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
                   tag "path", clip_rule: "evenodd", d: "M7.707 3.293a1 1 0 010 1.414L5.414 7H11a7 7 0 017 7v2a1 1 0 11-2 0v-2a5 5 0 00-5-5H5.414l2.293 2.293a1 1 0 11-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z", fill_rule: "evenodd"
                 end
@@ -28,12 +28,12 @@ class Questions::ShowPage < MainLayout
               end
             end
           end
-            render_question
-            render_quick_reply
-            render_answers
-            if answers.size >= 1
-              mount Shared::PaginationLinks, pages: pages, page_type: "answers"
-            end  
+          render_question
+          render_quick_reply
+          render_answers
+          if answers.size >= 1
+            mount Shared::PaginationLinks, pages: pages, page_type: "answers"
+          end
         end
       end
     end
@@ -46,8 +46,8 @@ class Questions::ShowPage < MainLayout
           mount Shared::TagSpan, question: question, separated: true
         end
         div class: "mt-2 px-8" do
-          link to: Questions::Show.with(question.id), class: "text-2xl text-gray-700 dark:text-white font-bold hover:text-gray-600 dark:hover:text-gray-200 hover:underline" do 
-            text question.title  
+          link to: Questions::Show.with(question.id), class: "text-2xl text-gray-700 dark:text-white font-bold hover:text-gray-600 dark:hover:text-gray-200 hover:underline" do
+            text question.title
           end
           para do
             small "Asked on #{question.created_at.to_s("%b %-d, %Y")} by #{question.author.username}."

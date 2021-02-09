@@ -16,7 +16,7 @@ class SaveTagging < Tagging::SaveOperation
     if query.question_id(question_id.not_nil!).tag_id(tag_id.not_nil!).first?
       query.question_id(question_id.not_nil!).tag_id(tag_id.not_nil!).first
     else
-      self.create!(question_id: question_id.not_nil!, tag_id: tag_id.not_nil!) 
+      self.create!(question_id: question_id.not_nil!, tag_id: tag_id.not_nil!)
     end
   end
 end

@@ -3,10 +3,10 @@ class SaveTag < Tag::SaveOperation
   # https://luckyframework.org/guides/database/validating-saving#perma-permitting-columns
   permit_columns name, slug, description
 
-  before_save do 
+  before_save do
     set_tag_slug
     validate_uniqueness_of name
-  end 
+  end
 
   private def set_tag_slug
     self.name.value.try do |n|
@@ -19,7 +19,7 @@ class SaveTag < Tag::SaveOperation
     if query.name(name.capitalize.not_nil!).first?
       query.name(name.capitalize.not_nil!).first
     else
-      self.create!(name: name.capitalize.not_nil!) 
+      self.create!(name: name.capitalize.not_nil!)
     end
   end
 end

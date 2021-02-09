@@ -30,9 +30,9 @@ abstract class MainLayout
       mount Shared::LayoutHead, page_title: page_title, context: context
       body class: "min-h-screen bg-gray-100" do
         mount Shared::HeaderNav, current_user: current_user
-          mount Shared::FlashMessages, context.flash
-          content
-        
+        mount Shared::FlashMessages, context.flash
+        content
+
         footer
       end
     end

@@ -2,9 +2,9 @@ class Static::HomePage < HomeLayout
   needs operation : SignInUser
 
   def content
-   header
-   features
-   statistics
+    header
+    features
+    statistics
   end
 
   private def header
@@ -41,7 +41,7 @@ class Static::HomePage < HomeLayout
                   if current_user
                     h2 "Welcome back!", class: "text-2xl font-semibold text-gray-700 dark:text-white fo"
                     div class: "mt-4" do
-                      para "It appears you are already logged in." 
+                      para "It appears you are already logged in."
                       para "Click the \"Dashboard\" or \"Logout\" button above."
                     end
                   else

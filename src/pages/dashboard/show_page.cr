@@ -4,21 +4,21 @@ class Dashboard::ShowPage < MainLayout
   needs my_pages : Lucky::Paginator
 
   def content
-    div class: "container mx-auto mt-2 min-h-screen px-6" do 
+    div class: "container mx-auto mt-2 min-h-screen px-6" do
       div class: "w-full max-w-6xl mx-auto" do
-        div class: "grid gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3" do 
-          div class: "sm:col-span-1 md:col-span-3 align-baseline" do 
+        div class: "grid gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3" do
+          div class: "sm:col-span-1 md:col-span-3 align-baseline" do
             h1 "Latest Unsolved Asks", class: "text-2xl text-gray-800 font-bold align-baseline"
             small "Can you help them?"
           end
           latest_asks
 
-          div class: "sm:col-span-1 md:col-span-3 lg:col-span-3 align-baseline mt-2" do 
+          div class: "sm:col-span-1 md:col-span-3 lg:col-span-3 align-baseline mt-2" do
             h1 "My Latest Asks", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
             small "Questions you've recently asked."
           end
           my_latest_asks
-          right_sidebar            
+          right_sidebar
         end
       end
     end
@@ -42,7 +42,7 @@ class Dashboard::ShowPage < MainLayout
               if !current_user.profile_picture_path.nil?
                 img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: current_user.profile_picture_path.not_nil!
               end
-                a current_user.username, class: "text-gray-700 dark:text-gray-200 font-bold cursor-pointer"
+              a current_user.username, class: "text-gray-700 dark:text-gray-200 font-bold cursor-pointer"
             end
           end
         end
@@ -64,8 +64,8 @@ class Dashboard::ShowPage < MainLayout
           end
           div do
             div class: "flex items-center justify-between mt-4" do
-              span do 
-                link "Read more", to: Questions::Show.with(question.id), class: "text-blue-600 dark:text-blue-400 hover:underline"       
+              span do
+                link "Read more", to: Questions::Show.with(question.id), class: "text-blue-600 dark:text-blue-400 hover:underline"
               end
               span class: "font-light text-gray-600 dark:text-gray-400 text-sm" do
                 text question.created_at.to_s("%b %-d, %Y")
@@ -89,8 +89,8 @@ class Dashboard::ShowPage < MainLayout
         end
         div do
           div class: "flex items-center justify-between mt-4" do
-            span do 
-              link "Read more", to: Dashboard::Show, class: "text-blue-600 dark:text-blue-400 hover:underline"       
+            span do
+              link "Read more", to: Dashboard::Show, class: "text-blue-600 dark:text-blue-400 hover:underline"
             end
             span class: "font-light text-gray-600 dark:text-gray-400 text-sm" do
               text "Blah"

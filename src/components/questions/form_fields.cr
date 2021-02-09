@@ -8,7 +8,7 @@ class Questions::FormFields < BaseComponent
     div do
       mount Shared::Field, operation.body, &.textarea(rows: "10")
     end
-    div do 
+    div do
       mount Shared::Field, operation.tags, &.text_input
     end
   end

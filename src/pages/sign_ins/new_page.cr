@@ -6,7 +6,7 @@ class SignIns::NewPage < AuthLayout
   end
 
   private def render_sign_in_form(op)
-    div class: "container mt-20" do 
+    div class: "container mt-20" do
       div class: "bg-white dark:bg-gray-800 w-full max-w-sm rounded-lg shadow-md overflow-hidden mx-auto" do
         div class: "py-4 px-6" do
           h2 "Ask.cr", class: "text-center font-bold text-gray-700 dark:text-white text-3xl"

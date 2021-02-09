@@ -5,7 +5,7 @@ class SaveQuestion < Question::SaveOperation
   attribute tags : String
   permit_columns title, body, parsed_body, solved, author_id
 
-  before_save do 
+  before_save do
     generate_parsed_body
     format_tags
   end
@@ -16,18 +16,18 @@ class SaveQuestion < Question::SaveOperation
 
   private def format_tags
     tags.value.try do |t|
-      submitted_tags = t.split(",").compact.reject! { |x| x == "" || x == " " }.map! {|x| x.strip.titleize }
+      submitted_tags = t.split(",").compact.reject! { |x| x == "" || x == " " }.map! { |x| x.strip.titleize }
       if !id.value.nil?
         question = QuestionQuery.new.preload_tags.find(id.value.not_nil!)
-        existing = question.tags.map{|x| x.name }
+        existing = question.tags.map { |x| x.name }
         removed_tags = existing - submitted_tags
-      end   
-    
+      end
+
       submitted_tags.each do |tag|
         tag = SaveTag.find_or_create(name: tag)
         SaveTagging.find_or_create(question_id: id.value, tag_id: tag.id)
       end
-      
+
       if !removed_tags.nil?
         removed_tags.each do |tag|
           tag = TagQuery.new.name(tag).first
@@ -36,10 +36,10 @@ class SaveQuestion < Question::SaveOperation
         end
       end
     end
-    
+
     if tags.value.nil?
       tagging = TaggingQuery.new.question_id(id.value.not_nil!)
-      tagging.each{|x| x.delete }
+      tagging.each { |x| x.delete }
     end
   end
 end

@@ -4,8 +4,8 @@ class SaveAnswer < Answer::SaveOperation
   # https://luckyframework.org/guides/database/validating-saving#perma-permitting-columns
   #
   permit_columns body, parsed_body, solution, author_id, question_id
-  
-  before_save do 
+
+  before_save do
     generate_parsed_body
   end
 

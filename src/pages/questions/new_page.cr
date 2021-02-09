@@ -3,11 +3,11 @@ class Questions::NewPage < MainLayout
   quick_def page_title, "New Question"
 
   def content
-    div class: "container mx-auto mt-4 min-h-screen px-6" do 
+    div class: "container mx-auto mt-4 min-h-screen px-6" do
       div class: "w-full max-w-2xl mx-auto" do
         div class: "grid grid-flow-row auto-rows-max gap-4" do
           div class: "grid grid-cols-6" do
-            div class: "col-span-2 align-baseline" do 
+            div class: "col-span-2 align-baseline" do
               h1 "New Question", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
             end
             div class: "col-span-4" do
@@ -21,7 +21,7 @@ class Questions::NewPage < MainLayout
             div do
               mount Shared::Field, operation.body, &.textarea(rows: "10")
             end
-            div do 
+            div do
               mount Shared::Field, operation.tags, &.text_input
             end
             div class: "place-self-center text-center mt-4" do
@@ -46,7 +46,7 @@ class Questions::NewPage < MainLayout
 
   def render_question_form(op)
     form_for Questions::Create do
-      div do 
+      div do
         mount Questions::FormFields, op
       end
       div class: "place-self-center text-center mt-4" do
