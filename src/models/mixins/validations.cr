@@ -1,0 +1,3 @@
+module Validations
+
+end
