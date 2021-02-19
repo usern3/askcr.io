@@ -12,7 +12,10 @@ require("turbolinks").start();
 // document.addEventListener("turbolinks:load", function() {
 //   ...
 // })
+require("./$.min.js");
+
 import hljs from 'highlight.js/lib/core';
+
 import 'highlight.js/styles/github-gist.css';
 
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -66,5 +69,41 @@ hljs.registerLanguage('html', html);
 document.addEventListener('turbolinks:load', function() {
   document.querySelectorAll('pre code').forEach((block) => {
       hljs.highlightBlock(block)
-  })
-})
+  });
+  bindFlashMessages();
+});
+
+// capture document events
+bindDocumentEvent('click');
+bindDocumentEvent('keyup');
+bindDocumentEvent('keydown');
+bindDocumentEvent('keypress');
+
+
+/**
+ * Binds a document event to $ so that you can listen to events like `$.on('click', (evt) => {...})`.
+ * @param string name the name of the event without an `on` prefix. e.g. `click`.
+ */
+function bindDocumentEvent(name) {
+  document[`on${name}`] = (evt) => {
+    evt = evt || window.event;
+    $.trigger(name, evt);
+  };
+}
+
+
+function bindFlashMessages() {
+  $('[flash-close-target]').on('click', (e) => {
+    const duration = 250;
+    const flashId = $('#close').getAttribute('flash-close-target').toString();
+    const classes = `transition ease-in-out duration-${duration} transform hidden scale-95`.split(' ');
+    const flash = $("#" + flashId);
+    flash.classList
+    classes.forEach((c) => {
+      flash.classList.add(c);
+      setTimeout(() => {
+        flash.toggleClass = 'hidden h-0'
+      }, duration);
+    });
+  });
+}
