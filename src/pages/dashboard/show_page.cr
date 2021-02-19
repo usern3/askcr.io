@@ -54,7 +54,7 @@ class Dashboard::ShowPage < MainLayout
   private def latest_asks
     latest_questions.each do |question|
       div class: "col-span-1" do
-        div class: "px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md" do
+        div class: "px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md h-full" do
           div class: "flex justify-between items-center" do
             mount Shared::TagSpan, question: question, separated: true
           end
@@ -63,7 +63,7 @@ class Dashboard::ShowPage < MainLayout
             para question.body[0, 180], class: "text-gray-600 dark:text-gray-300 text-sm mt-1"
           end
           div do
-            div class: "flex items-center justify-between mt-4" do
+            div class: "flex items-center justify-between mt-4 content-end" do
               span do
                 link "Read more", to: Questions::Show.with(question.id), class: "text-blue-600 dark:text-blue-400 hover:underline"
               end

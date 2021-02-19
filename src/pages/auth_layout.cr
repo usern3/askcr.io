@@ -17,12 +17,12 @@ abstract class AuthLayout
 
     html lang: "en" do
       mount Shared::LayoutHead, page_title: page_title, context: context
-      body do
+      body class: "min-h-screen" do
         mount Shared::AuthHeaderNav
         div class: "container mx-auto" do
-          mount Shared::FlashMessages, context.flash
           content
         end
+        mount Shared::FlashMessages, context.flash
       end
     end
   end

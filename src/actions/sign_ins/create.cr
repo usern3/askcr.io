@@ -5,7 +5,8 @@ class SignIns::Create < BrowserAction
     SignInUser.run(params) do |operation, authenticated_user|
       if authenticated_user
         sign_in(authenticated_user)
-        flash.success = "You're now signed in"
+        flash.keep
+        flash.success = "Welcome back! You're now signed in!"
         redirect Dashboard::Show
       else
         flash.failure = "Sign in failed"

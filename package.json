@@ -10,7 +10,8 @@
     "normalize-scss": "^7.0.1",
     "postcss": "^8.2.4",
     "tailwindcss": "^2.0.2",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "vue": "^2.6.12"
   },
   "scripts": {
     "heroku-postbuild": "yarn prod",
