@@ -5,38 +5,40 @@ class ChangeUserRole < LuckyCli::Task
 
   switch :disable, "Disable an existing user as an admin.", shortcut: "-d"
   positional_arg :email,
-    "Email of an existing user"
+    "Email of an existing user."
   positional_arg :role,
-    "Email of an existing user"
+    "Desired role."
 
   def call
     user = UserQuery.new.email(email).first?
     return puts "User #{email} is not found.".colorize(:red) unless user
 
-    case role
-    when "0"
-      new_role = "member"
-    when "1"
-      new_role = "moderator"
-    when "2"
-      new_role = "admin"
-    when "3"
-      new_role = "superadmin"
+    case role.downcase
+    when "member"
+      new_role = User::Role.new(:member)
+    when "moderator"
+      new_role = User::Role.new(:moderator)
+    when "admin"
+      new_role = User::Role.new(:admin)
+    when "superadmin"
+      new_role = User::Role.new(:superadmin)
+    else
+      raise "invalid role entered."
     end
 
     if disable?
-      if user.role > 0
-        SaveUser.update!(user, role: 0)
+      if user.role.value > 0
+        SaveUser.update!(user, role: User::Role.new(:member))
         puts "User #{email} is no longer an admin.".colorize(:green)
       else
         puts "User #{email} is not an admin.".colorize(:red)
       end
     else
-      if user.role == role.to_i
-        puts "User #{email} is already a(n) #{new_role}.".colorize(:red)
+      if user.role.value == new_role.value
+        puts "User #{email} is already a(n) #{role.downcase}.".colorize(:red)
       else
-        SaveUser.update!(user, role: role.to_i)
-        puts "User #{email} is now a(n) #{new_role}.".colorize(:green)
+        SaveUser.update!(user, role: new_role)
+        puts "User #{email} is now a(n) #{role.downcase}.".colorize(:green)
       end
     end
   end

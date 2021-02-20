@@ -1,7 +1,10 @@
 class Dashboard::ShowPage < MainLayout
+  include FormattingHelpers
   needs latest_questions : QuestionQuery
+  needs popular_tags : TagQuery
   needs my_questions : QuestionQuery
   needs my_pages : Lucky::Paginator
+  quick_def page_title, "Dashboard"
 
   def content
     div class: "container mx-auto mt-2 min-h-screen px-6" do
@@ -12,7 +15,6 @@ class Dashboard::ShowPage < MainLayout
             small "Can you help them?"
           end
           latest_asks
-
           div class: "sm:col-span-1 md:col-span-3 lg:col-span-3 align-baseline mt-2" do
             h1 "My Latest Asks", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
             small "Questions you've recently asked."
@@ -59,7 +61,7 @@ class Dashboard::ShowPage < MainLayout
             mount Shared::TagSpan, question: question, separated: true
           end
           div class: "mt-2" do
-            link minify_title(question.title), to: Questions::Show.with(question.id), class: "text-lg font-semibold text-gray-800 dark:text-white"
+            link minify_title(question.title, 70), to: Questions::Show.with(question.id), class: "text-lg font-semibold text-gray-800 dark:text-white"
             para question.body[0, 180], class: "text-gray-600 dark:text-gray-300 text-sm mt-1"
           end
           div do
@@ -73,7 +75,7 @@ class Dashboard::ShowPage < MainLayout
             end
           end
         end
-      end
+      end 
     end
   end
 
@@ -81,9 +83,16 @@ class Dashboard::ShowPage < MainLayout
     div class: "sm:col-span-1" do
       div class: "mx-auto px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md" do
         div class: "flex justify-between items-center" do
-          h2 "Sidebar", class: "text-lg font-semibold text-gray-800 dark:text-white"
+          h2 "Top 5 Tags", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
         div class: "mt-2" do
+          ul class: "list-inside list-decimal" do
+            popular_tags.each do |tag|
+              li do 
+                link "#{tag.name} (#{pluralize("Question", tag.question_count)})", to: Tags::Show.with(tag)
+              end
+            end
+          end
           link "", to: Dashboard::Show, class: "text-lg font-semibold text-gray-800 dark:text-white"
           para "", class: "text-gray-600 dark:text-gray-300 text-sm mt-1"
         end
@@ -99,9 +108,5 @@ class Dashboard::ShowPage < MainLayout
         end
       end
     end
-  end
-
-  def minify_title(title : String)
-    title.size > 70 ? "#{title[0..70]}..." : title
   end
 end

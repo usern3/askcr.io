@@ -7,7 +7,7 @@ class User < BaseModel
     column username : String
     column website_url : String?
     column encrypted_password : String
-    column role : Int32
+    column role : User::Role
     column profile_picture_path : String?
 
     has_many questions : Question, foreign_key: "author_id"
