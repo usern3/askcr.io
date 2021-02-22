@@ -21,7 +21,6 @@ class Admin::IndexPage < AuthLayout
             submit "Login", flow_id: "sign-in-button", class: "py-2 px-4 bg-gray-700 text-white rounded hover:bg-gray-600 focus:outline-none"
           end
         end
-
         div class: "flex items-center justify-center py-4 bg-gray-100 dark:bg-gray-700 text-center" do
           span "Don't have an account? ", class: "text-gray-600 dark:text-gray-200 text-sm"
           link "Register", to: SignUps::New, class: "text-blue-600 dark:text-blue-400 font-bold mx-2 text-sm hover:text-blue-500"

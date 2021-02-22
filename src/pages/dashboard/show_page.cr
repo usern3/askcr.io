@@ -75,7 +75,7 @@ class Dashboard::ShowPage < MainLayout
             end
           end
         end
-      end
+      end 
     end
   end
 
