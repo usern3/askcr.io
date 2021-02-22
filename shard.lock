@@ -2,11 +2,11 @@ version: 2.0
 shards:
   authentic:
     git: https://github.com/luckyframework/authentic.git
-    version: 0.7.1
+    version: 0.7.2
 
   avram:
     git: https://github.com/luckyframework/avram.git
-    version: 0.18.2
+    version: 0.19.0
 
   awscr-s3:
     git: https://github.com/taylorfinnell/awscr-s3.git
@@ -23,6 +23,10 @@ shards:
   blank:
     git: https://github.com/kostya/blank.git
     version: 0.1.0
+
+  breeze:
+    git: https://github.com/luckyframework/breeze.git
+    version: 0.1.0+git.commit.4f63e0b57d903953d28771219e088619022b8ed0
 
   carbon:
     git: https://github.com/luckyframework/carbon.git
@@ -74,11 +78,11 @@ shards:
 
   lucky:
     git: https://github.com/luckyframework/lucky.git
-    version: 0.25.0
+    version: 0.26.0
 
   lucky_cli:
     git: https://github.com/luckyframework/lucky_cli.git
-    version: 0.25.0
+    version: 0.26.0
 
   lucky_flow:
     git: https://github.com/luckyframework/lucky_flow.git
@@ -98,7 +102,7 @@ shards:
 
   pg:
     git: https://github.com/will/crystal-pg.git
-    version: 0.22.1
+    version: 0.23.1
 
   pulsar:
     git: https://github.com/luckyframework/pulsar.git
@@ -114,7 +118,7 @@ shards:
 
   shrine:
     git: https://github.com/jetrockets/shrine.cr.git
-    version: 0.6.0
+    version: 0.6.1
 
   teeplate:
     git: https://github.com/luckyframework/teeplate.git

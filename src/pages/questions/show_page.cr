@@ -56,9 +56,21 @@ class Questions::ShowPage < MainLayout
         end
         div class: "w-100 bg-gray-100 rounded justify-between items-center mt-4" do
           div class: "flex justify-between items-center mt-4 px-8 py-4" do
-            para "#{answers.size} Replies", class: "text-gray-600 dark:text-gray-400"
+            a "#{answers.size} Replies #{question.solution_id.nil? ? "" : "- Solved"}", href: "#answers", class: "text-gray-600 dark:text-gray-400"
+            if !question.solution_id.nil?
+              a href: "#answer-#{question.solution_id}", class: "inline-flex items-center ml-4 py-2 px-4 mt-1 bg-gray-200 text-gray-800 border-gray-500 hover:text-white rounded hover:bg-gray-400 focus:outline-none", type: "button" do
+                tag "svg", class: "inline mr-1 h-5 w-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
+                  tag "path", d: "M19 13l-7 7-7-7m14-8l-7 7-7-7", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
+                end  
+                text "Jump to solution"
+              end
+            end
             div class: "flex items-center" do
-              img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=40&q=80"
+              if !question.author.profile_picture_path.nil?
+                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: question.author.profile_picture_path.not_nil!
+              else
+                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: ""
+              end
               a question.author.username, class: "text-gray-700 dark:text-gray-200 font-bold cursor-pointer"
             end
           end
@@ -73,10 +85,12 @@ class Questions::ShowPage < MainLayout
         div class: "mt-2 px-8 py-4" do
           form_for Questions::Answers::Create.with(question_id: question.id), class: "mt-2 text-gray-600 dark:text-gray-300" do
             div do
-              mount Shared::Field, operation.body, label_text: "Quick Reply", &.textarea(rows: "10")
+              label_for operation.body, "Quick Reply", class: "block text-lg font-bold leading-5 text-gray-700"
+              small "Markdown syntax is supported.", class: "mb-4"
+              mount Shared::LabellessField, operation.body, label_text: "Quick Reply", &.textarea(rows: "10")
             end
             div class: "place-self-center text-center mt-4" do
-              submit "Post", data_disable_with: "Posting...", class: "py-2 px-4 bg-gray-700 text-white font-medium rounded hover:bg-green-500 hover:text-green-100 focus:outline-none place-self-center"
+              submit "Reply", data_disable_with: "Replying...", class: "py-2 px-4 bg-gray-700 text-white font-medium rounded hover:bg-green-500 hover:text-green-100 focus:outline-none place-self-center"
             end
           end
         end
@@ -99,23 +113,65 @@ class Questions::ShowPage < MainLayout
     end
   end
 
-  def render_answers
-    answers.each do |answer|
-      div do
-        div class: "max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-md" do
+  def render_answers 
+    div id:"answers" do
+      div class: "align-baseline" do
+        h1 "Responses", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
+      end
+      answers.each do |answer|
+        div id: "answer-#{answer.id}", class: "max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-md" do
           div class: "mt-2 px-8 py-4" do
+            div class: "float-right" do
+              if question.author.id == current_user.id && question.solution_id.nil?
+                link to: Questions::Answers::MarkSolution.with(question.id, answer.id), class: "inline-flex items-center ml-4 py-2 px-4 mt-1 bg-green-600 text-white rounded hover:bg-green-500 focus:outline-none", type: "button" do
+                  tag "svg", class: "inline mr-1 h-5 w-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
+                    tag "path", d: "M5 13l4 4L19 7", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
+                  end
+                  text "Mark Solution"
+                end
+              end
+              if question.solution_id == answer.id && answer.solution
+                a href: "#answer-#{question.solution_id}", class: "has-tooltip inline-flex items-center ml-4 py-2 px-4 mt-1 bg-gray-100 text-gray-800 rounded hover:bg-green-100 focus:outline-none", type: "button" do
+                  span "This is the solution chosen by the question author.", class: "tooltip rounded shadow-lg px-2 py-1 bg-gray-800 text-gray-100 -mt-20"
+                  tag "svg", class: "inline h-5 w-5 text-green-500", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
+                    tag "path", d: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
+                  end
+                end
+                if current_user.id == question.author.id
+                  link to: Questions::Answers::UnmarkSolution.with(question.id, answer.id), class: "has-tooltip inline-flex items-center ml-4 py-2 px-4 mt-1 bg-gray-100 text-red-600 rounded hover:bg-red-200 focus:outline-none", type: "button" do
+                    span "Unmark this answer as the solution.", class: "tooltip rounded shadow-lg px-2 py-1 bg-gray-800 text-gray-100 -mt-20"
+                    tag "svg", class: "inline h-5 w-5 text-red-500", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
+                      tag "path", d: "M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
+                    end
+                  end
+                end
+              end
+            end
             raw(answer.parsed_body)
           end
-          div class: "w-100 bg-gray-100 rounded justify-between items-center mt-4" do
+          if answer.solution
+            answer_footer_class = "w-100 bg-green-50 rounded justify-between items-center mt-4"
+          else
+            answer_footer_class = "w-100 bg-gray-50 rounded justify-between items-center mt-4"
+          end
+          div class: answer_footer_class do
             div class: "flex justify-between items-center mt-4 px-8 py-4" do
               para class: "font-bold" do
-                small "Answered on #{answer.created_at.to_s("%b %-d, %Y")} by #{question.author.username}."
+                small "Answered on #{answer.created_at.to_s("%b %-d, %Y")} by #{question.author.username}"
+                br
+                if answer.solution
+                  small "Marked as solution!", class: "font-medium mr-4"
+                end
                 if current_user == answer.author
-                  link "Edit", to: Questions::Answers::Edit.with(question.id, answer.id)
+                  link "Edit", to: Questions::Answers::Edit.with(question.id, answer.id), class: "text-sm"
                 end
               end
               div class: "flex items-center" do
-                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=40&q=80"
+                if !question.author.profile_picture_path.nil?
+                  img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: question.author.profile_picture_path.not_nil!
+                else
+                  img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: ""
+                end
                 a answer.author.username, class: "text-gray-700 dark:text-gray-200 font-bold cursor-pointer"
               end
             end

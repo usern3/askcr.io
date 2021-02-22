@@ -26,10 +26,10 @@ class Shared::TagSpan < BaseComponent
         end
       end
 
-      if question.solved?
-        a "Solved", class: "px-3 py-1 bg-green-600 text-green-100 text-sm font-bold rounded hover:bg-gray-500"
-      else
+      if question.solution_id.nil?
         a "Unsolved", class: "px-3 py-1 bg-red-200 text-red-500 text-sm font-bold rounded hover:bg-red-300"
+      else
+        a "Solved", class: "px-3 py-1 bg-green-600 text-white text-sm font-bold rounded hover:bg-green-500"
       end
     end
   end
@@ -50,10 +50,10 @@ class Shared::TagSpan < BaseComponent
       end
     end
     span do
-      if question.solved?
-        a "Solved", class: "px-3 py-1 bg-green-600 text-green-100 text-sm font-bold rounded hover:bg-gray-500"
-      else
+      if question.solution_id.nil?
         a "Unsolved", class: "px-3 py-1 bg-red-200 text-red-500 text-sm font-bold rounded hover:bg-red-300"
+      else
+        a "Solved", class: "px-3 py-1 bg-green-600 text-green-100 text-sm font-bold rounded hover:bg-green-500"
       end
     end
   end

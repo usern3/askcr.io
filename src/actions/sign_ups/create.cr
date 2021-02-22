@@ -2,7 +2,7 @@ class SignUps::Create < BrowserAction
   include Auth::RedirectSignedInUsers
 
   post "/sign_up" do
-    SignUpUser.create(params, role: 0) do |operation, user|
+    SignUpUser.create(params, role: User::Role.new(:member)) do |operation, user|
       if user
         flash.success = "You're now a registered user! Now, start asking and answering questions!"
         sign_in(user)

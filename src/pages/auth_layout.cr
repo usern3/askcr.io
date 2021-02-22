@@ -9,7 +9,7 @@ abstract class AuthLayout
   # Add a `page_title` method to pages to override it. You can also remove
   # This method so every page is required to have its own page title.
   def page_title
-    "Welcome"
+    "AskCryst.al"
   end
 
   def render

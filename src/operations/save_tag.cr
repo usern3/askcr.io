@@ -17,9 +17,10 @@ class SaveTag < Tag::SaveOperation
   def self.find_or_create(*, name)
     query = TagQuery.new
     if query.name(name.capitalize.not_nil!).first?
-      query.name(name.capitalize.not_nil!).first
+      tag = query.name(name.capitalize.not_nil!).first
+      SaveTag.update!(tag, question_count: tag.question_count + 1)
     else
-      self.create!(name: name.capitalize.not_nil!)
+      SaveTag.create!(name: name.capitalize.not_nil!, question_count: 1)
     end
   end
 end

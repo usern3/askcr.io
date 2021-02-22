@@ -32,3 +32,14 @@
   bottom: 30px;
   right: 20px;
 }
+.tooltip{
+  visibility: hidden;
+  position: absolute;
+}
+.has-tooltip:hover .tooltip {
+  visibility: visible;
+  z-index: 100;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}

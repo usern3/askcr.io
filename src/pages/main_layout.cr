@@ -20,7 +20,7 @@ abstract class MainLayout
   #
   # This will force pages to define their own 'page_title' method.
   def page_title
-    "Welcome"
+    "AskCryst.al"
   end
 
   def render

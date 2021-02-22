@@ -12,7 +12,7 @@ class Questions::EditPage < MainLayout
               h1 "Editing \"#{question.title}\"", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
             end
             div class: "col-span-2" do
-              link "Delete", to: Questions::Index, class: "py-2 px-4 bg-red-200 text-red-500 rounded hover:bg-red-500 hover:text-red-200 focus:outline-none float-right"
+              link "Delete", to: Questions::Delete.with(question), class: "py-2 px-4 bg-red-200 text-red-500 rounded hover:bg-red-500 hover:text-red-200 focus:outline-none float-right"
             end
           end
           form_for Questions::Update.with(question.id) do

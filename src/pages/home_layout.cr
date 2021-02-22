@@ -6,7 +6,7 @@ abstract class HomeLayout
   abstract def page_title
 
   def page_title
-    "Welcome to Ask.cr!"
+    "Welcome to AskCryst.al!"
   end
 
   def render

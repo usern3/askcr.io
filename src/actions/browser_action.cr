@@ -4,6 +4,7 @@ abstract class BrowserAction < Lucky::Action
 
   # This module provides current_user, sign_in, and sign_out methods
   include Authentic::ActionHelpers(User)
+  include Breeze::ActionHelpers
 
   # When testing you can skip normal sign in by using `visit` with the `as` param
   #
