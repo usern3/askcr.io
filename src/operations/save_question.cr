@@ -5,7 +5,6 @@ class SaveQuestion < Question::SaveOperation
   attribute tags : String
   permit_columns title, body, parsed_body, solved, author_id
 
-  after_commit :increment_tag_question_count
   after_save :format_tags
 
   before_save do
@@ -14,13 +13,6 @@ class SaveQuestion < Question::SaveOperation
 
   private def generate_parsed_body
     self.parsed_body.value = Markdown.parse(self.body.value.not_nil!)
-  end
-
-  private def increment_tag_question_count(submitted_question : Question)
-    question = QuestionQuery.new.preload_tags.find(submitted_question.id)
-    question.tags.each do |tag|
-      SaveTag.update!(tag, question_count: tag.question_count + 1)
-    end
   end
 
   private def format_tags(submitted_question : Question)
@@ -38,6 +30,7 @@ class SaveQuestion < Question::SaveOperation
       if !removed_tags.nil?
         removed_tags.each do |tag|
           tag = TagQuery.new.name(tag).first
+          SaveTag.update!(tag, question_count: tag.question_count - 1)
           tagging = TaggingQuery.new.question_id(question.id).tag_id(tag.id.not_nil!)
           tagging.delete
         end

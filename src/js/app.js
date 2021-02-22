@@ -107,3 +107,94 @@ function bindFlashMessages() {
     });
   });
 }
+
+/**
+ * Binds a menu element to it's panel so that clicking the menu opens the panel.
+ * @param {*} menu
+ * @param {*} menuPanel
+ */
+function bindMenuPanel(menu, menuPanel, openedClasses, closedClasses, sticky) {
+  let isOpen = true;
+  const openClasses = openedClasses.split(' ');
+  const closeClasses = closedClasses.split(' ');
+  closeClasses.push('pointer-events-none');
+
+  const open = () => {
+    if (isOpen == true) return;
+    isOpen = true;
+    openClasses.forEach((c) => {
+      menuPanel.classList.add(c);
+    });
+    closeClasses.forEach((c) => {
+      menuPanel.classList.remove(c);
+    });
+    menuPanel.trigger('opened');
+  };
+  const close = () => {
+    if (isOpen == false) return;
+    isOpen = false;
+    closeClasses.forEach((c) => {
+      menuPanel.classList.add(c);
+    });
+    openClasses.forEach((c) => {
+      menuPanel.classList.remove(c);
+    });
+    menuPanel.trigger('closed');
+  };
+
+  menu.on('click', () => {
+    if (isOpen) {
+      close();
+    } else {
+      open();
+    }
+  });
+
+  // add some utility listeners so the menu can programatialy closed/opened.
+  menu.on('close', close);
+  menu.on('open', open);
+
+  // close this menu if the escape key is pressed.
+  $.on('keyup', (e) => {
+    if (e.data.key === 'Escape') {
+      close();
+    }
+  });
+
+  // close the menu if the user clicks away
+  $.on('click', e => {
+    if (!isOpen || sticky) return;
+
+    const menuRect = menu.getBoundingClientRect();
+    const panelRect = menuPanel.getBoundingClientRect();
+
+    if (!isPointInRect(e.data.clientX, e.data.clientY, menuRect) && !isPointInRect(e.data.clientX, e.data.clientY, panelRect)) {
+      close();
+    }
+  });
+
+  // Start closed to ensure state is consistent.
+  close();
+  return menuPanel;
+}
+
+function isPointInRect(x, y, rect) {
+  return x > rect.left && x < rect.right && y > rect.top && y < rect.bottom
+}
+
+/**
+ * Registers a menu with it's panel.
+ * The panel selector should be the same as the menu selector but with `-panel` affixed to it.
+ * @param {*} menuSelector
+ * @param {boolean} sticky the menu can only be close programaticaly or by clicking the menu button again.
+ */
+function registerMenu(menuSelector, openedClasses = 'transition ease-out duration-200 transform scale-100', closedClasses = 'transition ease-in duration-75 transform hidden scale-95', sticky = false) {
+  const m = $(menuSelector);
+  const p = $(`${menuSelector}-panel`);
+  if (!m || m.length === 0 || !p || p.length === 0) {
+    // Return an empty node list so things break silently
+    return $('-missing-element-');
+  } else {
+    return bindMenuPanel(m, p, openedClasses, closedClasses, sticky);
+  }
+}

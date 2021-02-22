@@ -6,7 +6,7 @@ module Auth::RedirectSignedInUsers
 
   private def redirect_signed_in_users
     if current_user?
-      flash.success = "You are already signed in"
+      flash.info = "You are already signed in."
       redirect to: Dashboard::Show
     else
       continue

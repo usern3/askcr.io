@@ -88,7 +88,7 @@ class Dashboard::ShowPage < MainLayout
         div class: "mt-2" do
           ul class: "list-inside list-decimal" do
             popular_tags.each do |tag|
-              li do 
+              li class: "my-1" do
                 link "#{tag.name} (#{pluralize("Question", tag.question_count)})", to: Tags::Show.with(tag)
               end
             end
