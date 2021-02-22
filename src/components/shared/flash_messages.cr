@@ -7,26 +7,26 @@ class Shared::FlashMessages < BaseComponent
       color = flash_color flash_type
       flash_id = "flash-#{flash_type}-#{flash_index}"
       # div class: "cornerbox" do
-        div class: "boxmessages w-full max-w-sm" do 
-          div id: flash_id, class: "flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 mt-6" do
-            div class: "flex items-center justify-center w-12 bg-#{color}-500" do
-              flash_icon(flash_type)
+      div class: "boxmessages w-full max-w-sm" do
+        div id: flash_id, class: "flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 mt-6" do
+          div class: "flex items-center justify-center w-12 bg-#{color}-500" do
+            flash_icon(flash_type)
+          end
+          div class: "px-4 py-2 -mx-3" do
+            div class: "mx-3" do
+              span flash_heading(flash_type), class: "font-semibold text-#{color}-500 dark:text-red-400"
+              para flash_message, class: "text-sm text-gray-600 dark:text-gray-200"
             end
-            div class: "px-4 py-2 -mx-3" do
-              div class: "mx-3" do
-                span flash_heading(flash_type), class: "font-semibold text-#{color}-500 dark:text-red-400"
-                para flash_message, class: "text-sm text-gray-600 dark:text-gray-200"
-              end
-            end
-            div class: "flex-grow text-right self-center" do
-              button id: "close", aria_label: "Dismiss", flash_close_target: flash_id,  class: "self-end rounded-md p-1 hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none transition ease-in-out duration-150 mr-2" do
-                tag "svg", class: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
-                  tag "path", d: "M6 18L18 6M6 6L18 18", stroke: "currentColor", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
-                end
+          end
+          div class: "flex-grow text-right self-center" do
+            button id: "close", aria_label: "Dismiss", flash_close_target: flash_id, class: "self-end rounded-md p-1 hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none transition ease-in-out duration-150 mr-2" do
+              tag "svg", class: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
+                tag "path", d: "M6 18L18 6M6 6L18 18", stroke: "currentColor", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
               end
             end
           end
         end
+      end
       # end
       flash_index += 1
     end

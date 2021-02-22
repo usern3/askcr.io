@@ -1,7 +1,7 @@
 class Admin::Tags::IndexPage < MainLayout
   include FormattingHelpers
   needs tags : TagQuery
-  #needs pages : Lucky::Paginator
+  # needs pages : Lucky::Paginator
   quick_def page_title, "All Tags"
 
   def content
@@ -20,39 +20,39 @@ class Admin::Tags::IndexPage < MainLayout
   private def tags_list
     div class: "md:col-span-2" do
       div class: "px-8 py-4 mb-4 bg-white dark:bg-gray-800 rounded-lg shadow-md" do
-        div class: "grid grid-cols-16" do 
-          div class: "col-span-1" do 
+        div class: "grid grid-cols-16" do
+          div class: "col-span-1" do
             span "ID", class: "font-bold text-gray-800"
           end
-          div class: "col-span-2" do 
+          div class: "col-span-2" do
             span "Name", class: "font-bold text-gray-800"
           end
-          div class: "col-span-2" do 
+          div class: "col-span-2" do
             span "Slug", class: "font-bold text-gray-800"
           end
           div class: "col-span-4" do
             span "Description", class: "font-bold text-gray-800"
           end
-          div class: "col-span-3" do 
+          div class: "col-span-3" do
             span "Posts (Counted/Actual)", class: "font-bold text-gray-800"
           end
           div class: "col-span-4" do
             span "Actions", class: "font-bold text-gray-800"
           end
           tags.each do |tag|
-            div class: "col-span-1" do 
+            div class: "col-span-1" do
               span tag.id, class: "text-gray-800"
             end
-            div class: "col-span-2" do 
+            div class: "col-span-2" do
               span tag.name, class: "text-gray-800"
             end
-            div class: "col-span-2" do 
+            div class: "col-span-2" do
               span tag.slug, class: "text-gray-800"
             end
             div class: "col-span-4" do
               span tag.description ? tag.description : "n/a", class: "text-gray-800"
             end
-            div class: "col-span-3" do 
+            div class: "col-span-3" do
               span "#{tag.question_count}/#{tag.questions.size}", class: "text-gray-800"
             end
             div class: "col-span-4" do
@@ -85,7 +85,7 @@ class Admin::Tags::IndexPage < MainLayout
         div class: "mt-2" do
           ul class: "list-inside list-decimal" do
             # tags.each do |tag|
-            #   li do 
+            #   li do
             #     link "#{tag.name} (#{pluralize("Question", tag.question_count)})", to: Tags::Show.with(tag)
             #   end
             # end
@@ -106,4 +106,4 @@ class Admin::Tags::IndexPage < MainLayout
       end
     end
   end
-end  
+end
