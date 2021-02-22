@@ -9,5 +9,5 @@ module FormattingHelpers
     else
       "#{count} #{word}"
     end
-  end 
+  end
 end

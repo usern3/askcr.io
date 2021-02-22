@@ -79,10 +79,10 @@ class Tags::IndexPage < MainLayout
             end
           end
         end
-      end 
+      end
     end
   end
-  
+
   private def right_sidebar
     div class: "sm:col-span-1" do
       div class: "mx-auto px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md" do
@@ -92,7 +92,7 @@ class Tags::IndexPage < MainLayout
         div class: "mt-2" do
           ul class: "list-inside list-decimal" do
             tags.each do |tag|
-              li do 
+              li do
                 link "#{tag.name} (#{pluralize("Question", tag.question_count)})", to: Tags::Show.with(tag)
               end
             end
@@ -113,4 +113,4 @@ class Tags::IndexPage < MainLayout
       end
     end
   end
-end  
+end

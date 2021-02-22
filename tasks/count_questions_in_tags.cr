@@ -14,7 +14,7 @@ class CountQuestionsInTags < LuckyCli::Task
         SaveTag.update(current_tag, question_count: current_tag.questions.size) do |op, tag|
           if op.saved?
             puts "Tag: #{tag_name.capitalize} question count successful.".colorize(:green)
-          else 
+          else
             puts "Something went wrong. Please check the information entered and try again.".colorize(:red)
           end
         end
@@ -27,7 +27,7 @@ class CountQuestionsInTags < LuckyCli::Task
         SaveTag.update(t, question_count: t.questions.size) do |op, tag|
           if op.saved?
             puts "#{tag.name.capitalize} question count successful.".colorize(:green)
-          else 
+          else
             puts "{tag.name.capitalize} failed.".colorize(:red)
           end
         end
@@ -38,6 +38,6 @@ class CountQuestionsInTags < LuckyCli::Task
   def add_to_existing
     # Add counts to existing tags.
     current_tags = TagQuery.new
-    current_tags.each {|t| SaveTag.update!(t, question_count: t.questions.size)}
+    current_tags.each { |t| SaveTag.update!(t, question_count: t.questions.size) }
   end
 end

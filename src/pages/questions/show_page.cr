@@ -113,8 +113,8 @@ class Questions::ShowPage < MainLayout
     end
   end
 
-  def render_answers 
-    div id:"answers" do
+  def render_answers
+    div id: "answers" do
       div class: "align-baseline" do
         h1 "Responses", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
       end
