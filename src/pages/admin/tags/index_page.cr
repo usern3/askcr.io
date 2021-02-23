@@ -21,20 +21,20 @@ class Admin::Tags::IndexPage < AdminLayout
   private def tags_list
     div class: "md:col-span-3" do
       div class: "py-4 mb-4 bg-white dark:bg-gray-800 rounded-lg shadow-md" do
-        div class: "grid grid-cols-16 border-b-2 border-gray-300" do 
-          div class: "col-span-1 mb-3 text-center" do 
+        div class: "grid grid-cols-16 border-b-2 border-gray-300" do
+          div class: "col-span-1 mb-3 text-center" do
             span "ID", class: "font-bold text-gray-800"
           end
-          div class: "col-span-2 mb-3" do 
+          div class: "col-span-2 mb-3" do
             span "Tag", class: "font-bold text-gray-800"
           end
-          div class: "col-span-3 mb-3" do 
+          div class: "col-span-3 mb-3" do
             span "Slug", class: "font-bold text-gray-800"
           end
           div class: "col-span-5 mb-3" do
             span "Description", class: "font-bold text-gray-800"
           end
-          div class: "has-tooltip inline col-span-2 mb-3 text-center" do 
+          div class: "has-tooltip inline col-span-2 mb-3 text-center" do
             span "question_count/tags.questions.size - If inaccurate, run count_questions_in_tags task.", class: "tooltip rounded shadow-lg px-2 py-1 bg-gray-800 text-gray-100 -mt-16 mr-28"
             span "Posts/Actual", class: "font-bold text-gray-800"
           end
@@ -43,14 +43,14 @@ class Admin::Tags::IndexPage < AdminLayout
           end
         end
         tags.each_with_index do |tag, index|
-          div class: index % 2 == 0 ? "grid grid-cols-16 py-2 bg-gray-50 border-b border-gray-200 hover:bg-gray-100" : "grid grid-cols-16 py-2 bg-white border-b border-gray-200 hover:bg-gray-100" do 
-            div class: "col-span-1 mb-2 self-center text-center" do 
+          div class: index % 2 == 0 ? "grid grid-cols-16 py-2 bg-gray-50 border-b border-gray-200 hover:bg-gray-100" : "grid grid-cols-16 py-2 bg-white border-b border-gray-200 hover:bg-gray-100" do
+            div class: "col-span-1 mb-2 self-center text-center" do
               span tag.id, class: "text-gray-800"
             end
-            div class: "col-span-2 mb-2 self-center" do 
+            div class: "col-span-2 mb-2 self-center" do
               span tag.name, class: "text-gray-800"
             end
-            div class: "col-span-3 mb-2 self-center" do 
+            div class: "col-span-3 mb-2 self-center" do
               span "/tags/#{tag.slug}", class: "text-gray-800"
             end
             div class: "col-span-5 mb-2 self-center" do
@@ -61,7 +61,7 @@ class Admin::Tags::IndexPage < AdminLayout
                 span "n/a", class: "text-gray-800"
               end
             end
-            div class: "col-span-2 text-center mb-2 self-center text-center" do 
+            div class: "col-span-2 text-center mb-2 self-center text-center" do
               span "#{tag.question_count}/#{tag.questions.size}", class: "text-gray-800 self-center"
             end
             div class: "col-span-3 text-center items-center mb-2 self-center text-center" do
@@ -84,4 +84,4 @@ class Admin::Tags::IndexPage < AdminLayout
       mount ::Shared::PaginationLinks, pages: pages, page_type: "tags"
     end
   end
-end  
+end

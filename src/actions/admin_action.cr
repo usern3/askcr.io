@@ -1,6 +1,6 @@
 abstract class AdminAction < Lucky::Action
   include Lucky::ProtectFromForgery
-          accepted_formats [:html, :json], default: :html
+  accepted_formats [:html, :json], default: :html
   include Authentic::ActionHelpers(User)
   include Breeze::ActionHelpers
   include Auth::TestBackdoor

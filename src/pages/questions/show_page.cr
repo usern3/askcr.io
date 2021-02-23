@@ -61,7 +61,7 @@ class Questions::ShowPage < MainLayout
               a href: "#answer-#{question.solution_id}", class: "inline-flex items-center ml-4 py-2 px-4 mt-1 bg-gray-200 text-gray-800 border-gray-500 hover:text-white rounded hover:bg-gray-400 focus:outline-none", type: "button" do
                 tag "svg", class: "inline mr-1 h-5 w-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
                   tag "path", d: "M19 13l-7 7-7-7m14-8l-7 7-7-7", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
-                end  
+                end
                 text "Jump to solution"
               end
             end

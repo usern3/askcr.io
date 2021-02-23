@@ -6,7 +6,7 @@ class Admin::Shared::HeaderNav < BaseComponent
     link "Questions", to: Questions::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-700"
     link "Answers", to: Questions::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-700"
     link "Tags", to: Admin::Tags::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-700"
-    link to: Dashboard::Show, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-700 align-middle" do 
+    link to: Dashboard::Show, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-700 align-middle" do
       tag "svg", class: "inline h-5 w-5 mr-1", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
         tag "path", d: "M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
       end

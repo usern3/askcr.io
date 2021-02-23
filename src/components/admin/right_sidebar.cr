@@ -1,5 +1,4 @@
 class Admin::Shared::RightSidebar < BaseComponent
-
   def render
     div class: "sm:col-span-1" do
       div class: "mx-auto px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md" do
@@ -9,7 +8,7 @@ class Admin::Shared::RightSidebar < BaseComponent
         div class: "mt-2" do
           ul class: "list-inside list-decimal" do
             # tags.each do |tag|
-            #   li do 
+            #   li do
             #     link "#{tag.name} (#{pluralize("Question", tag.question_count)})", to: Tags::Show.with(tag)
             #   end
             # end

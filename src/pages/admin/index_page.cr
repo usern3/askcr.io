@@ -69,7 +69,7 @@ class Admin::IndexPage < AdminLayout
             end
           end
         end
-      end 
+      end
     end
   end
 
