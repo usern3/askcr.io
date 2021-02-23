@@ -9,6 +9,7 @@ class User < BaseModel
     column encrypted_password : String
     column role : User::Role
     column profile_picture_path : String?
+    column soft_deleted_at : Time?
 
     has_many questions : Question, foreign_key: "author_id"
     has_many answers : Answer, foreign_key: "author_id"

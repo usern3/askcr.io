@@ -1,4 +1,4 @@
-class Admin::Tags::Update < BrowserAction
+class Admin::Tags::Update < AdminAction
   route do
     tag = TagQuery.find(tag_id)
     SaveTag.update(tag, params) do |operation, tag|

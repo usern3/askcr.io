@@ -1,7 +1,7 @@
 class SaveTag < Tag::SaveOperation
   # To save user provided params to the database, you must permit them
   # https://luckyframework.org/guides/database/validating-saving#perma-permitting-columns
-  permit_columns name, slug, description
+  permit_columns name, slug, description, text_color, background_color
 
   before_save do
     set_tag_slug

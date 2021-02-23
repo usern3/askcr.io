@@ -1,6 +1,6 @@
 class Tags::Update < BrowserAction
-  route do
-    tag = TagQuery.find(tag_id)
+  put "/tags/:tag_slug" do
+    tag = TagQuery.new.slug(tag_slug).first
     SaveTag.update(tag, params) do |operation, tag|
       if operation.saved?
         flash.success = "The record has been updated"

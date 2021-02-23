@@ -5,6 +5,7 @@ class Question < BaseModel
     column parsed_body : String
     column solved : Bool
     column solution_id : Int64?
+    column soft_deleted_at : Time?
 
     belongs_to author : User
     has_many taggings : Tagging

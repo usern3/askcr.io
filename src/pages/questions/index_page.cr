@@ -1,4 +1,5 @@
 class Questions::IndexPage < MainLayout
+  include FormattingHelpers
   needs questions : QuestionQuery
   needs pages : Lucky::Paginator
   quick_def page_title, "All Questions"
@@ -53,14 +54,6 @@ class Questions::IndexPage < MainLayout
           end
         end
       end
-    end
-  end
-
-  def pluralize_reply(size)
-    if size > 1 || size == 0
-      "#{size} replies"
-    else
-      "1 reply"
     end
   end
 end

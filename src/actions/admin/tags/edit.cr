@@ -1,4 +1,4 @@
-class Admin::Tags::Edit < BrowserAction
+class Admin::Tags::Edit < AdminAction
   route do
     tag = TagQuery.find(tag_id)
     html EditPage,

@@ -1,7 +1,9 @@
 class Tags::Delete < BrowserAction
-  route do
-    TagQuery.find(tag_id).delete
-    flash.success = "Deleted the record"
-    redirect Index
+  delete "/tags/:tag_slug" do
+    tag = TagQuery.new.slug(tag_slug).first
+    name = tag.name
+    tag.delete
+    flash.success = "Succesfully deleted the tag \"#{name}.\""
+    redirect Tags::Index
   end
 end
