@@ -93,7 +93,7 @@ class Tags::IndexPage < MainLayout
           ul class: "list-inside list-decimal" do
             tags.each do |tag|
               li do
-                link "#{tag.name} (#{pluralize("Question", tag.question_count)})", to: Tags::Show.with(tag)
+                link "#{tag.name} (#{pluralize tag.question_count, "Question"})", to: Tags::Show.with(tag)
               end
             end
           end

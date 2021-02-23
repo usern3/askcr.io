@@ -1,29 +1,104 @@
-class Admin::IndexPage < AuthLayout
-  needs current_user : User
+class Admin::IndexPage < AdminLayout
+  include FormattingHelpers
+  needs latest_questions : QuestionQuery
+  needs popular_tags : TagQuery
+  needs pages : Lucky::Paginator
+  quick_def page_title, "Dashboard"
 
   def content
-    render_sign_in_form
+    div class: "container mx-auto mt-2 min-h-screen px-6" do
+      div class: "w-full max-w-6xl mx-auto" do
+        div class: "grid gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3" do
+          div class: "sm:col-span-1 md:col-span-3 lg:col-span-3 align-baseline mt-2" do
+            h1 "Latest Questions", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
+            small "Questions most recently posted."
+          end
+          latest_questions_list
+          right_sidebar
+        end
+      end
+    end
   end
 
-  private def render_sign_in_form
-    div class: "container mt-20" do
-      div class: "bg-white dark:bg-gray-800 w-full max-w-sm rounded-lg shadow-md overflow-hidden mx-auto" do
-        div class: "py-4 px-6" do
-          h2 "Ask.cr", class: "text-center font-bold text-gray-700 dark:text-white text-3xl"
-          h3 "Welcome Back", class: "mt-1 text-center font-medium text-gray-600 dark:text-gray-200 text-xl"
-          para "Login or create account", class: "mt-1 text-center text-gray-500 dark:text-gray-400"
-          div class: "mt-4 w-full" do
+  private def latest_questions_list
+    div class: "md:col-span-2" do
+      latest_questions.each do |question|
+        div class: "px-8 py-4 mb-4 bg-white dark:bg-gray-800 rounded-lg shadow-md" do
+          div class: "flex justify-between items-center" do
+            span question.created_at.to_s("%b %-d, %Y"), class: "font-light text-gray-600 dark:text-gray-400 text-sm"
+            mount ::Shared::TagSpan, question: question, separated: false
           end
-          div class: "mt-4 w-full" do
+          div class: "mt-2" do
+            link question.title, to: Questions::Show.with(question.id), class: "text-2xl text-gray-700 dark:text-white font-bold hover:text-gray-600 dark:hover:text-gray-200 hover:underline"
+            para question.body[0..200], class: "mt-2 text-gray-600 dark:text-gray-300"
           end
           div class: "flex justify-between items-center mt-4" do
-            link "Forgot password?", to: PasswordResetRequests::New, class: "text-gray-600 dark:text-gray-200 text-sm hover:text-gray-500"
-            submit "Login", flow_id: "sign-in-button", class: "py-2 px-4 bg-gray-700 text-white rounded hover:bg-gray-600 focus:outline-none"
+            link "Read more", to: Questions::Show.with(question.id), class: "text-blue-600 dark:text-blue-400 hover:underline"
+            div class: "flex items-center" do
+              if !current_user.profile_picture_path.nil?
+                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: current_user.profile_picture_path.not_nil!
+              end
+              a current_user.username, class: "text-gray-700 dark:text-gray-200 font-bold cursor-pointer"
+            end
           end
         end
-        div class: "flex items-center justify-center py-4 bg-gray-100 dark:bg-gray-700 text-center" do
-          span "Don't have an account? ", class: "text-gray-600 dark:text-gray-200 text-sm"
-          link "Register", to: SignUps::New, class: "text-blue-600 dark:text-blue-400 font-bold mx-2 text-sm hover:text-blue-500"
+      end
+      mount ::Shared::PaginationLinks, pages: pages, page_type: "questions"
+    end
+  end
+
+  private def latest_asks
+    latest_questions.each do |question|
+      div class: "col-span-1" do
+        div class: "px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md h-full" do
+          div class: "flex justify-between items-center" do
+            mount Shared::TagSpan, question: question, separated: true
+          end
+          div class: "mt-2" do
+            link minify_title(question.title, 70), to: Questions::Show.with(question.id), class: "text-lg font-semibold text-gray-800 dark:text-white"
+            para question.body[0, 180], class: "text-gray-600 dark:text-gray-300 text-sm mt-1"
+          end
+          div do
+            div class: "flex items-center justify-between mt-4 content-end" do
+              span do
+                link "Read more", to: Questions::Show.with(question.id), class: "text-blue-600 dark:text-blue-400 hover:underline"
+              end
+              span class: "font-light text-gray-600 dark:text-gray-400 text-sm" do
+                text question.created_at.to_s("%b %-d, %Y")
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+
+  private def right_sidebar
+    div class: "sm:col-span-1" do
+      div class: "mx-auto px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md" do
+        div class: "flex justify-between items-center" do
+          h2 "Admin Panel", class: "text-lg font-semibold text-gray-800 dark:text-white"
+        end
+        div class: "mt-2" do
+          ul class: "list-inside list-decimal" do
+            popular_tags.each do |tag|
+              li class: "my-1" do
+                link "#{tag.name} (#{pluralize tag.question_count, "Question"})", to: ::Tags::Show.with(tag)
+              end
+            end
+          end
+          link "", to: Dashboard::Show, class: "text-lg font-semibold text-gray-800 dark:text-white"
+          para "", class: "text-gray-600 dark:text-gray-300 text-sm mt-1"
+        end
+        div do
+          div class: "flex items-center justify-between mt-4" do
+            span do
+              link "Read more", to: Dashboard::Show, class: "text-blue-600 dark:text-blue-400 hover:underline"
+            end
+            span class: "font-light text-gray-600 dark:text-gray-400 text-sm" do
+              text "Blah"
+            end
+          end
         end
       end
     end
