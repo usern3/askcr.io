@@ -2,7 +2,7 @@ class User < BaseModel
   include Carbon::Emailable
   include Authentic::PasswordAuthenticatable
 
-  ROLES = [{"Member", 0}, {"Moderator", 1}, {"Admin", 2}, {"Superadmin", 3}, {"Banned", 4}]
+  ROLES = [{"Member", User::Role.new(:member)}, {"Moderator", User::Role.new(:moderator)}, {"Admin", User::Role.new(:admin)}, {"Superadmin", User::Role.new(:superadmin)}, {"Banned", User::Role.new(:banned)}]
 
   table do
     column email : String

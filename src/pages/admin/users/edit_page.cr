@@ -71,7 +71,7 @@ class Admin::Users::EditPage < AdminLayout
                 end
                 div do
                   mount ::Shared::Field, op.role do |input_html|
-                    input_html.select_input(required: true, replace_class: "form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5") do
+                    input_html.select_input(required: true, replace_class: "form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border rounded border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5") do
                       options_for_select op.role, User::ROLES
                     end
                   end
