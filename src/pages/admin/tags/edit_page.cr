@@ -15,7 +15,7 @@ class Admin::Tags::EditPage < AdminLayout
               link "Delete", to: ::Tags::Delete.with(tag), class: "py-2 px-4 bg-red-200 text-red-500 rounded hover:bg-red-500 hover:text-red-200 focus:outline-none float-right"
             end
           end
-          form_for Admin::Tags::Update.with(tag.id), class: "grid grid-cols-8" do
+          form_for Admin::Tags::Update.with(tag.id), class: "grid grid-cols-8 gap-4" do
             div class: "col-span-8" do
               mount ::Shared::Field, operation.name, &.text_input(autofocus: "true")
             end
