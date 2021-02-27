@@ -10,7 +10,7 @@ class Admin::Users::IndexPage < AdminLayout
         div class: "grid gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3" do
           div class: "sm:col-span-1 md:col-span-3 align-baseline" do
             h1 "All Users", class: "text-2xl text-gray-800 font-bold align-baseline"
-            small "A list of all users used in the application."
+            small "A list of all users registered in the application."
           end
           users_list
         end
@@ -28,14 +28,17 @@ class Admin::Users::IndexPage < AdminLayout
           div class: "col-span-3 mb-3" do
             span "Email", class: "font-bold text-gray-800"
           end
-          div class: "col-span-3 mb-3" do
+          div class: "col-span-2 mb-3" do
             span "Username", class: "font-bold text-gray-800"
           end
-          div class: "col-span-4 mb-3" do
+          div class: "col-span-1 mb-3" do
             span "Role", class: "font-bold text-gray-800"
           end
           div class: "has-tooltip inline col-span-2 mb-3 text-center" do
             span "Questions Asked", class: "font-bold text-gray-800"
+          end
+          div class: "col-span-3 mb-3 text-center" do
+            span "Answers/Solutions", class: "font-bold text-gray-800"
           end
           div class: "col-span-3 text-center mb-3 text-center" do
             span "Actions", class: "font-bold text-gray-800"
@@ -49,10 +52,10 @@ class Admin::Users::IndexPage < AdminLayout
             div class: "col-span-3 mb-2 self-center" do
               span user.email, class: "text-gray-800"
             end
-            div class: "col-span-3 mb-2 self-center" do
+            div class: "col-span-2 mb-2 self-center" do
               span user.username, class: "text-gray-800"
             end
-            div class: "col-span-4 mb-2 self-center" do
+            div class: "col-span-1 mb-2 self-center" do
               if user.role.admin? || user.role.superadmin?
                 span "Admin", class: "text-red-600"
               elsif user.role.moderator?
@@ -63,6 +66,13 @@ class Admin::Users::IndexPage < AdminLayout
             end
             div class: "col-span-2 text-center mb-2 self-center text-center" do
               span "#{user.questions.size}", class: "text-gray-800 self-center"
+            end
+            div class: "col-span-3 text-center mb-2 self-center text-center" do
+              solutions = 0
+              user.answers.each do |answer|
+                solutions += 1 if answer.solution
+              end
+              span "#{user.answers.size}/#{solutions}", class: "text-gray-800 self-center"
             end
             div class: "col-span-3 text-center items-center mb-2 self-center text-center" do
               link to: Admin::Users::Edit.with(user.id), class: "has-tooltip inline-flex  py-2 px-4 bg-transparent text-gray-800 rounded hover:bg-green-100 focus:outline-none", type: "button" do

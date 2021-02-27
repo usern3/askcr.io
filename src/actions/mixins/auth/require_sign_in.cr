@@ -5,7 +5,12 @@ module Auth::RequireSignIn
 
   private def require_sign_in
     if current_user?
-      continue
+      if current_user.role.banned?
+        flash.failure = "This account has been banned."
+        redirect to: Static::Banned.with(current_user)
+      else
+        continue
+      end
     else
       Authentic.remember_requested_path(self)
       flash.info = "Please sign in first"

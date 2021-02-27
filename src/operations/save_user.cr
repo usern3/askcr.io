@@ -6,6 +6,11 @@ class SaveUser < User::SaveOperation
 
   before_save do
     validate_uniqueness_of email
+    validate_uniqueness_of username
+    validate_size_of username, min: 3 # Can't be too short
+    validate_size_of username, max: 14 # Must have a short name
+    validate_required role
+    validate_size_of password, min: 7
     Authentic.copy_and_encrypt password, to: encrypted_password
     profile_picture.value.try { |pic| upload_pic(pic) }
   end

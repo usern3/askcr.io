@@ -2,6 +2,8 @@ class User < BaseModel
   include Carbon::Emailable
   include Authentic::PasswordAuthenticatable
 
+  ROLES = [{"Member", 0}, {"Moderator", 1}, {"Admin", 2}, {"Superadmin", 3}, {"Banned", 4}]
+
   table do
     column email : String
     column username : String
@@ -21,6 +23,7 @@ class User < BaseModel
     Moderator  = 1
     Admin      = 2
     Superadmin = 3
+    Banned     = 4
   end
 
   def emailable : Carbon::Address
