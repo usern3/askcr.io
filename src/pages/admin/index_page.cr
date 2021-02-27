@@ -55,11 +55,11 @@ class Admin::IndexPage < AdminLayout
           h2 "User Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
         div class: "mt-2" do
-          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do 
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "Total: ", class: "font-bold text-gray-600"
             text users.size
           end
-          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do 
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "New This Week: ", class: "font-bold text-gray-600"
             text users.created_at.lt(1.week.ago).size
           end
@@ -75,11 +75,11 @@ class Admin::IndexPage < AdminLayout
           h2 "Question Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
         div class: "mt-2" do
-          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do 
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "Total: ", class: "font-bold text-gray-600"
             text questions.size
           end
-          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do 
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "New This Week: ", class: "font-bold text-gray-600"
             text questions.created_at.lt(1.week.ago).size
           end
@@ -95,11 +95,11 @@ class Admin::IndexPage < AdminLayout
           h2 "Answer Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
         div class: "mt-2" do
-          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do 
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "Total: ", class: "font-bold text-gray-600"
             text answers.size
           end
-          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do 
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "New This Week: ", class: "font-bold text-gray-600"
             text answers.created_at.lt(1.week.ago).size
           end
@@ -115,11 +115,11 @@ class Admin::IndexPage < AdminLayout
           h2 "Tag Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
         div class: "mt-2" do
-          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do 
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "Total: ", class: "font-bold text-gray-600"
             text tags.size
           end
-          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do 
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "New This Week: ", class: "font-bold text-gray-600"
             text tags.created_at.lt(1.week.ago).size
           end
