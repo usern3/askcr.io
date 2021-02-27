@@ -20,14 +20,14 @@ class SignIns::NewPage < AuthLayout
               mount Shared::Field, attribute: op.password, &.password_input(replace_class: "w-full mt-2 py-2 px-4 bg-white dark:bg-gray-800 text-gray-700 border border-gray-300 dark:border-gray-600 rounded block placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", placeholder: "Password")
             end
             div class: "flex justify-between items-center mt-4" do
-              link "Forgot password?", to: PasswordResetRequests::New, class: "text-gray-600 dark:text-gray-200 text-sm hover:text-gray-500"
+              link "Forgot password?", to: PasswordResetRequests::New, flow_id: "request-password-reset-button", class: "text-gray-600 dark:text-gray-200 text-sm hover:text-gray-500"
               submit "Login", flow_id: "sign-in-button", class: "py-2 px-4 bg-gray-700 text-white rounded hover:bg-gray-600 focus:outline-none"
             end
           end
         end
         div class: "flex items-center justify-center py-4 bg-gray-100 dark:bg-gray-700 text-center" do
           span "Don't have an account? ", class: "text-gray-600 dark:text-gray-200 text-sm"
-          link "Register", to: SignUps::New, class: "text-blue-600 dark:text-blue-400 font-bold mx-2 text-sm hover:text-blue-500"
+          link "Register", to: SignUps::New, flow_id: "sign-up-button", class: "text-blue-600 dark:text-blue-400 font-bold mx-2 text-sm hover:text-blue-500"
         end
       end
     end
