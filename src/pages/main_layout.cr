@@ -59,7 +59,7 @@ abstract class MainLayout
           end
         end
       end
-      div class: "container" do 
+      div class: "container" do
         div do
           a href: "https://wallet.nimiq.com/nimiq:NQ88Y1P7DMTV1C6FLAY060DNSRN9VM360CDN", target: "_blank" do
             img src: "https://www.nimiq.com/accept-donations/img/donationBtnImg/blue-big.svg"

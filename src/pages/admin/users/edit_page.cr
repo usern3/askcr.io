@@ -1,5 +1,5 @@
 class Admin::Users::EditPage < AdminLayout
-  include FormattingHelpers 
+  include FormattingHelpers
   needs operation : SaveUser
   needs user : User
   quick_def page_title, "Editing @#{user.username}'s profile."
@@ -25,7 +25,7 @@ class Admin::Users::EditPage < AdminLayout
   private def render_latest_questions
     div class: "md:col-span-2" do
       div class: "px-4" do
-        div class: "my-2" do 
+        div class: "my-2" do
           h2 "Latest Questions Asked", class: "text-xl text-gray-800 font-bold align-baseline"
         end
         user.questions.each do |question|
@@ -55,7 +55,7 @@ class Admin::Users::EditPage < AdminLayout
 
   private def right_sidebar(op)
     div class: "sm:col-span-1" do
-      div class: "my-2" do 
+      div class: "my-2" do
         h2 "User Details", class: "text-xl text-gray-800 font-bold align-baseline"
       end
       div class: "mx-auto px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md" do
