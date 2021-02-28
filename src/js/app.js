@@ -75,7 +75,6 @@ document.addEventListener('turbolinks:load', function() {
   loadCharts();
 });
 document.addEventListener('turbolinks:load', loadCharts);
-document.addEventListener('turbolinks:click', unloadCharts);
 
 // capture document events
 bindDocumentEvent('click');

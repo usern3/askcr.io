@@ -1,6 +1,6 @@
 import Chart from 'chart.js';
 require("./$.min.js");
-document.addEventListener('turbolinks:load', function() {
+function loadCharts() {
   var ctx = document.getElementById('users-chart');
   var ctx2 = document.getElementById('questions-chart');
   var ctx3 = document.getElementById('answers-chart');
@@ -84,5 +84,7 @@ document.addEventListener('turbolinks:load', function() {
       ]
     },
     options: {}
-  })});
+  }
+  );
+}
   document.addEventListener('turbolinks:load', loadCharts);
