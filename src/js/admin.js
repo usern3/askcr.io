@@ -11,8 +11,8 @@ var myPieChart = new Chart(ctx, {
     datasets: [{
         data: [document.getElementById('users-chart').getAttribute('total-users'), document.getElementById('users-chart').getAttribute('new-users')],
         backgroundColor: [
-          '#e05c1f',
-          '#12c9c9',
+          '#2B3748',
+          '#818CF8',
         ]
     }],
   
@@ -31,8 +31,8 @@ var myPieChart2 = new Chart(ctx2, {
     datasets: [{
         data: [document.getElementById('questions-chart').getAttribute('total-questions'), document.getElementById('questions-chart').getAttribute('new-questions')],
         backgroundColor: [
-          '#e05c1f',
-          '#12c9c9',
+          '#2B3748',
+          '#818CF8',
         ]
     }],
   
@@ -51,8 +51,8 @@ var myPieChart3 = new Chart(ctx3, {
     datasets: [{
       data: [document.getElementById('answers-chart').getAttribute('total-answers'), document.getElementById('answers-chart').getAttribute('new-answers')],
       backgroundColor: [
-        '#e05c1f',
-        '#12c9c9',
+        '#2B3748',
+        '#818CF8',
       ]
     }],
   
@@ -71,8 +71,8 @@ var myPieChart4 = new Chart(ctx4, {
     datasets: [{
       data: [document.getElementById('tags-chart').getAttribute('total-tags'), document.getElementById('tags-chart').getAttribute('new-tags')],
       backgroundColor: [
-        '#e05c1f',
-        '#12c9c9',
+        '#2B3748',
+        '#818CF8',
       ]
     }],
   

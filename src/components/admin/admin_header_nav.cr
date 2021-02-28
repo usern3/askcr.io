@@ -15,7 +15,7 @@ class Admin::Shared::HeaderNav < BaseComponent
   end
 
   def render
-    nav class: "bg-gray-700 dark:bg-gray-700 shadow" do
+    nav class: "bg-gray-800 dark:bg-gray-800 shadow" do
       div class: "container mx-auto px-6 py-3" do
         div class: "md:flex md:items-center md:justify-between" do
           div class: "flex justify-between items-center" do
