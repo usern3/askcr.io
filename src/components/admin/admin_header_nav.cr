@@ -4,7 +4,7 @@ class Admin::Shared::HeaderNav < BaseComponent
   def render_links
     link "Users", to: Admin::Users::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700"
     link "Questions", to: Questions::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700"
-    link "Answers", to: Questions::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700"
+    link "Answers", to: Admin::Questions::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700"
     link "Tags", to: Admin::Tags::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700"
     link to: Dashboard::Show, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700 align-middle" do
       tag "svg", class: "inline h-5 w-5 mr-1", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
@@ -22,7 +22,7 @@ class Admin::Shared::HeaderNav < BaseComponent
             div class: "text-xl font-semibold text-white" do
               link to: Admin::Index, class: "text-white dark:text-white text-xl font-bold md:text-2xl hover:text-gray-100 dark:hover:text-gray-300" do
                 text "AskCryst.al"
-                span "Admin", class: "ml-1 text-red-400 hover:text-red-600 text-xl font-bold md:text-2xl"
+                span "Admin", class: "ml-1 text-indigo-400 hover:text-indigo-500 text-xl font-bold md:text-2xl"
               end
             end
             div class: "flex md:hidden" do

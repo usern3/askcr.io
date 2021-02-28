@@ -72,7 +72,10 @@ document.addEventListener('turbolinks:load', function() {
       hljs.highlightBlock(block)
   });
   bindFlashMessages();
+  loadCharts();
 });
+document.addEventListener('turbolinks:load', loadCharts);
+document.addEventListener('turbolinks:click', unloadCharts);
 
 // capture document events
 bindDocumentEvent('click');

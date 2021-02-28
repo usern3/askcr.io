@@ -1,4 +1,6 @@
 class Tag < BaseModel
+  include Avram::SoftDelete::Model
+  
   table do
     column name : String
     column slug : String

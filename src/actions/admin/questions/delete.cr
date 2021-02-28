@@ -1,4 +1,4 @@
-class Questions::Delete < BrowserAction
+class Admin::Questions::Delete < BrowserAction
   route do
     question = QuestionQuery.new.preload_tags.find(question_id)
     question.tags.each do |tag|

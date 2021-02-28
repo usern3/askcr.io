@@ -1,6 +1,7 @@
 class User < BaseModel
   include Carbon::Emailable
   include Authentic::PasswordAuthenticatable
+  include Avram::SoftDelete::Model
 
   ROLES = [{"Member", User::Role.new(:member)}, {"Moderator", User::Role.new(:moderator)}, {"Admin", User::Role.new(:admin)}, {"Superadmin", User::Role.new(:superadmin)}, {"Banned", User::Role.new(:banned)}]
 

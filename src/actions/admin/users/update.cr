@@ -1,6 +1,7 @@
 class Admin::Users::Update < BrowserAction
-  route do
-    SaveUser.update(current_user, params) do |operation, user|
+  post "/admin/users/:user_id/edit" do
+    user = UserQuery.find(user_id)
+    SaveUser.update(user, params) do |operation, user|
       if operation.saved?
         flash.keep
         flash.success = "Profile successfully updated."
