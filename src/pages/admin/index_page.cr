@@ -54,6 +54,10 @@ class Admin::IndexPage < AdminLayout
         div class: "flex justify-between items-center" do
           h2 "User Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
+        div class: "mt-2" do 
+          tag "canvas", id: "users-chart", width: "400", height: "400", total_users: users.size - users.created_at.lt(1.week.ago).size, new_users: users.created_at.lt(1.week.ago).size do 
+          end
+        end
         div class: "mt-2" do
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "Total: ", class: "font-bold text-gray-600"
@@ -73,6 +77,10 @@ class Admin::IndexPage < AdminLayout
       div class: "mx-auto px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md" do
         div class: "flex justify-between items-center" do
           h2 "Question Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
+        end
+        div class: "mt-2" do 
+          tag "canvas", id: "questions-chart", width: "400", height: "400", total_questions: questions.size - questions.created_at.lt(1.week.ago).size, new_questions: questions.created_at.lt(1.week.ago).size do 
+          end
         end
         div class: "mt-2" do
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
@@ -94,6 +102,10 @@ class Admin::IndexPage < AdminLayout
         div class: "flex justify-between items-center" do
           h2 "Answer Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
+        div class: "mt-2" do 
+          tag "canvas", id: "answers-chart", width: "400", height: "400", total_answers: answers.size - answers.created_at.lt(1.week.ago).size, new_answers: answers.created_at.lt(1.week.ago).size do 
+          end
+        end
         div class: "mt-2" do
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "Total: ", class: "font-bold text-gray-600"
@@ -113,6 +125,10 @@ class Admin::IndexPage < AdminLayout
       div class: "mx-auto px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md" do
         div class: "flex justify-between items-center" do
           h2 "Tag Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
+        end
+        div class: "mt-2" do 
+          tag "canvas", id: "tags-chart", width: "400", height: "400", total_tags: tags.size - tags.created_at.lt(1.week.ago).size, new_tags: tags.created_at.lt(1.week.ago).size do 
+          end
         end
         div class: "mt-2" do
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do

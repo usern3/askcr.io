@@ -13,6 +13,7 @@ require("turbolinks").start();
 //   ...
 // })
 require("./$.min.js");
+require("./admin.js");
 
 import hljs from 'highlight.js/lib/core';
 
