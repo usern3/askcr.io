@@ -55,6 +55,10 @@ class Admin::IndexPage < AdminLayout
           h2 "User Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
         div class: "mt-2" do
+          tag "canvas", id: "users-chart", width: "400", height: "400", total_users: users.size - users.created_at.lt(1.week.ago).size, new_users: users.created_at.lt(1.week.ago).size do
+          end
+        end
+        div class: "mt-2" do
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "Total: ", class: "font-bold text-gray-600"
             text users.size
@@ -62,6 +66,11 @@ class Admin::IndexPage < AdminLayout
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "New This Week: ", class: "font-bold text-gray-600"
             text users.created_at.lt(1.week.ago).size
+          end
+        end
+        div class: "mt-2" do
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1 text-right" do
+            link "View Users", to: Admin::Users::Index, class: "font-bold text-gray-600 hover:text-gray-800"
           end
         end
       end
@@ -75,6 +84,10 @@ class Admin::IndexPage < AdminLayout
           h2 "Question Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
         div class: "mt-2" do
+          tag "canvas", id: "questions-chart", width: "400", height: "400", total_questions: questions.size - questions.created_at.lt(1.week.ago).size, new_questions: questions.created_at.lt(1.week.ago).size do
+          end
+        end
+        div class: "mt-2" do
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "Total: ", class: "font-bold text-gray-600"
             text questions.size
@@ -82,6 +95,11 @@ class Admin::IndexPage < AdminLayout
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "New This Week: ", class: "font-bold text-gray-600"
             text questions.created_at.lt(1.week.ago).size
+          end
+        end
+        div class: "mt-2" do
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1 text-right" do
+            link "View Questions", to: ::Questions::Index, class: "font-bold text-gray-600 hover:text-gray-800"
           end
         end
       end
@@ -95,6 +113,10 @@ class Admin::IndexPage < AdminLayout
           h2 "Answer Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
         div class: "mt-2" do
+          tag "canvas", id: "answers-chart", width: "400", height: "400", total_answers: answers.size - answers.created_at.lt(1.week.ago).size, new_answers: answers.created_at.lt(1.week.ago).size do
+          end
+        end
+        div class: "mt-2" do
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "Total: ", class: "font-bold text-gray-600"
             text answers.size
@@ -102,6 +124,11 @@ class Admin::IndexPage < AdminLayout
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "New This Week: ", class: "font-bold text-gray-600"
             text answers.created_at.lt(1.week.ago).size
+          end
+        end
+        div class: "mt-2" do
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1 text-right" do
+            link "View Answers", to: Admin::Users::Index, class: "font-bold text-gray-600 hover:text-gray-800"
           end
         end
       end
@@ -115,6 +142,10 @@ class Admin::IndexPage < AdminLayout
           h2 "Tag Stats", class: "text-lg font-semibold text-gray-800 dark:text-white"
         end
         div class: "mt-2" do
+          tag "canvas", id: "tags-chart", width: "400", height: "400", total_tags: tags.size - tags.created_at.lt(1.week.ago).size, new_tags: tags.created_at.lt(1.week.ago).size do
+          end
+        end
+        div class: "mt-2" do
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "Total: ", class: "font-bold text-gray-600"
             text tags.size
@@ -122,6 +153,11 @@ class Admin::IndexPage < AdminLayout
           para class: "text-gray-600 dark:text-gray-300 text-sm mt-1" do
             span "New This Week: ", class: "font-bold text-gray-600"
             text tags.created_at.lt(1.week.ago).size
+          end
+        end
+        div class: "mt-2" do
+          para class: "text-gray-600 dark:text-gray-300 text-sm mt-1 text-right" do
+            link "View Tags", to: Admin::Tags::Index, class: "font-bold text-gray-600 hover:text-gray-800"
           end
         end
       end
