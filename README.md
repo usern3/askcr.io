@@ -11,7 +11,7 @@ If you would like to donate to the project and help pay the server and domain bi
 - ETH (0x4Ed9693609e19De3C97813E851f877EeBc9abd3f)
 - BCH (qqpjvu533z0r4j0mex9s73epenttrvsa7sqdqnu3zw)
 or
-<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support My Projects on Ko-fi', '#29abe0', 'G2G83QD5W');kofiwidget2.draw();</script> 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G83QD5W)
 
 Thank you for reading! Oh and here's some preview screen caps below!
 
