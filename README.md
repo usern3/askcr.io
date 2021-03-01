@@ -7,9 +7,11 @@ The project is currently being re-written and the initial release is about 65% d
 If you'd like to help, please feel free to open up issues or contribute code. As of now I'm doing this all on my own. 
 
 If you would like to donate to the project and help pay the server and domain bills, you can donate 
-BTC (bc1qkjd9vdvmgmzwma786guc8u04rztnuat3alm3ks)
-ETH (0x4Ed9693609e19De3C97813E851f877EeBc9abd3f)
-or BCH (qqpjvu533z0r4j0mex9s73epenttrvsa7sqdqnu3zw)
+- BTC (bc1qkjd9vdvmgmzwma786guc8u04rztnuat3alm3ks)
+- ETH (0x4Ed9693609e19De3C97813E851f877EeBc9abd3f)
+- BCH (qqpjvu533z0r4j0mex9s73epenttrvsa7sqdqnu3zw)
+or
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G83QD5W)
 
 Thank you for reading! Oh and here's some preview screen caps below!
 
