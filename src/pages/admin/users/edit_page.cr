@@ -15,14 +15,14 @@ class Admin::Users::EditPage < AdminLayout
           div class: "sm:col-span-1 md:col-span-3 align-baseline" do
             h1 "Editing user: #{user.username}(#{user.email})", class: "text-2xl text-gray-800 font-bold align-baseline"
           end
-          render_latest_questions
-          right_sidebar(operation)
+          render_user_questions
+          user_details_card(@operation)
         end
       end
     end
   end
 
-  private def render_latest_questions
+  private def render_user_questions
     div class: "md:col-span-2" do
       div class: "px-4" do
         div class: "my-2" do
@@ -53,7 +53,7 @@ class Admin::Users::EditPage < AdminLayout
     end
   end
 
-  private def right_sidebar(op)
+  private def user_details_card(op)
     div class: "sm:col-span-1" do
       div class: "my-2" do
         h2 "User Details", class: "text-xl text-gray-800 font-bold align-baseline"
@@ -61,7 +61,7 @@ class Admin::Users::EditPage < AdminLayout
       div class: "mx-auto px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md" do
         div class: "mt-2" do
           div class: "grid grid-flow-row auto-rows-max gap-4" do
-            form_for Users::Update.with(user.id), multipart: true do
+            form_for Admin::Users::Update.with(user.id), multipart: true do
               div class: "grid grid-cols-1 sm:grid-cols-1 gap-6 mt-4" do
                 div do
                   mount ::Shared::Field, attribute: op.username, &.text_input(autofocus: "true", append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", attrs: [:disabled])
@@ -75,12 +75,6 @@ class Admin::Users::EditPage < AdminLayout
                       options_for_select op.role, User::ROLES
                     end
                   end
-                end
-                div do
-                  mount ::Shared::Field, attribute: op.password, &.password_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
-                end
-                div do
-                  mount ::Shared::Field, attribute: op.password_confirmation, &.password_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
                 end
                 div do
                   div class: "h-20 w-20 mb-4" do

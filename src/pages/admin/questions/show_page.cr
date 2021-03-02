@@ -11,7 +11,7 @@ class Admin::Questions::ShowPage < MainLayout
         div class: "grid grid-flow-row auto-rows-max gap-4" do
           div class: "grid grid-cols-8" do
             div class: "col-span-8 align-baseline items-end text-right my-2" do
-              if question.author == current_user
+              if current_user.role.admin? || current_user.role.superadmin?
                 link to: Questions::Edit.with(question.id), class: "inline-flex items-center ml-4 py-2 px-4 mt-1 bg-gray-700 text-white rounded hover:bg-gray-600 focus:outline-none", type: "button" do
                   tag "svg", class: "inline mr-1 h-5 w-5", fill: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
                     tag "path", d: "M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"
@@ -117,7 +117,7 @@ class Admin::Questions::ShowPage < MainLayout
           div class: "mt-2 px-8 py-4" do
             div class: "float-right" do
               if question.author.id == current_user.id && question.solution_id.nil?
-                link to: Questions::Answers::MarkSolution.with(question.id, answer.id), class: "inline-flex items-center ml-4 py-2 px-4 mt-1 bg-green-600 text-white rounded hover:bg-green-500 focus:outline-none", type: "button" do
+                link to: ::Questions::Answers::MarkSolution.with(question.id, answer.id), class: "inline-flex items-center ml-4 py-2 px-4 mt-1 bg-green-600 text-white rounded hover:bg-green-500 focus:outline-none", type: "button" do
                   tag "svg", class: "inline mr-1 h-5 w-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
                     tag "path", d: "M5 13l4 4L19 7", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
                   end
@@ -132,7 +132,7 @@ class Admin::Questions::ShowPage < MainLayout
                   end
                 end
                 if current_user.id == question.author.id
-                  link to: Questions::Answers::UnmarkSolution.with(question.id, answer.id), class: "has-tooltip inline-flex items-center ml-4 py-2 px-4 mt-1 bg-gray-100 text-red-600 rounded hover:bg-red-200 focus:outline-none", type: "button" do
+                  link to: ::Questions::Answers::UnmarkSolution.with(question.id, answer.id), class: "has-tooltip inline-flex items-center ml-4 py-2 px-4 mt-1 bg-gray-100 text-red-600 rounded hover:bg-red-200 focus:outline-none", type: "button" do
                     span "Unmark this answer as the solution.", class: "tooltip rounded shadow-lg px-2 py-1 bg-gray-800 text-gray-100 -mt-20"
                     tag "svg", class: "inline h-5 w-5 text-red-500", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
                       tag "path", d: "M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
@@ -157,7 +157,7 @@ class Admin::Questions::ShowPage < MainLayout
                   small "Marked as solution!", class: "font-medium mr-4"
                 end
                 if current_user == answer.author
-                  link "Edit", to: Questions::Answers::Edit.with(question.id, answer.id), class: "text-sm"
+                  link "Edit", to: Admin::Answers::Edit.with(question.id, answer.id), class: "text-sm"
                 end
               end
               div class: "flex items-center" do

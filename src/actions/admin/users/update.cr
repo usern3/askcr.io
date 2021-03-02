@@ -1,6 +1,6 @@
 class Admin::Users::Update < BrowserAction
   post "/admin/users/:user_id/edit" do
-    user = UserQuery.find(user_id)
+    user = UserQuery.new.preload_questions(QuestionQuery.new).find(user_id)
     SaveUser.update(user, params) do |operation, user|
       if operation.saved?
         flash.keep
@@ -8,7 +8,7 @@ class Admin::Users::Update < BrowserAction
         redirect Admin::Users::Index
       else
         flash.failure = "It looks like the form is not valid"
-        html EditPage, operation: operation, user: current_user
+        html Admin::Users::EditPage, operation: operation, user: current_user
       end
     end
   end

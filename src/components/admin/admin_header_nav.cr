@@ -4,7 +4,7 @@ class Admin::Shared::HeaderNav < BaseComponent
   def render_links
     link "Users", to: Admin::Users::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700"
     link "Questions", to: Questions::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700"
-    link "Answers", to: Admin::Questions::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700"
+    link "Answers", to: Admin::Answers::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700"
     link "Tags", to: Admin::Tags::Index, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700"
     link to: Dashboard::Show, class: "mx-2 mt-2 md:mt-0 px-2 py-1 text-sm text-white dark:text-gray-200 font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-700 align-middle" do
       tag "svg", class: "inline h-5 w-5 mr-1", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do

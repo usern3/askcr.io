@@ -11,12 +11,12 @@ class Admin::IndexPage < AdminLayout
   def content
     div class: "container mx-auto mt-2 min-h-screen px-6" do
       div class: "w-full max-w-6xl mx-auto" do
-        div class: "grid gap-4 grid-cols-3" do
+        div class: "grid gap-4 grid-cols-6" do
           div class: "col-span-1 mt-2" do
-            h1 "Admin Dashboard", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
-            small "Overview of the AskCryst.al application."
+            h1 "Stats", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
+            small "AskCryst.al. quick stats."
           end
-          div class: "col-span-2 mt-2" do
+          div class: "col-span-5 mt-2" do
             h1 "Latest Questions", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
             small "Latest questions asked by users."
           end
@@ -26,7 +26,7 @@ class Admin::IndexPage < AdminLayout
             answer_stats
             tag_stats
           end
-          div class: "md:col-span-2" do
+          div class: "md:col-span-5" do
             latest_questions_list
           end
         end
