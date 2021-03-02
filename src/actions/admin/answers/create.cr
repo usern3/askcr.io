@@ -1,4 +1,4 @@
-class Admin::Answers::Create < AdminAction
+class Admin::Questions::Answers::Create < AdminAction
   post "/admin/answers" do
     question = AnswerQuery.new.preload_user.preload_questionfind(answer_id)
     SaveAnswer.create(params, question_id: answer.question.id, author_id: answer.author.id, solution: false) do |operation, answer|

@@ -1,4 +1,4 @@
-class Admin::Answers::Update < AdminAction
+class Admin::Questions::Answers::Update < AdminAction
   post "/admin/answers/:answer_id" do
     answer = AnswerQuery.find(answer_id)
     SaveAnswer.update(answer, params) do |operation, answer|
