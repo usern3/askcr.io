@@ -4,6 +4,8 @@ class Admin::Answers::EditPage < MainLayout
   quick_def page_title, "Edit Answer"
 
   def content
-   
+    div do 
+      text "Test"
+    end
   end
 end
