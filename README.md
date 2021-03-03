@@ -12,6 +12,7 @@ Also, whichever coin raises the most before launch will have a nice advertisemen
 - BTC (bc1qkjd9vdvmgmzwma786guc8u04rztnuat3alm3ks)
 - ETH (0x4Ed9693609e19De3C97813E851f877EeBc9abd3f)
 - BCH (qqpjvu533z0r4j0mex9s73epenttrvsa7sqdqnu3zw)
+- DOGE (DSjUEhPiaD4W61UexYzb4iftiefe4iuHFB)
 - XMR (LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr)
 - OXEN (LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr)
 - NIM (NQ88 Y1P7 DMTV 1C6F LAY0 60DN SRN9 VM36 0CDN)
