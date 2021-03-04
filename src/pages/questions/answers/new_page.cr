@@ -16,7 +16,7 @@ class Questions::Answers::NewPage < MainLayout
             end
           end
           render_question
-          form_for Questions::Answers::Create.with(question.id) do
+          form_for Admin::Questions::Answers::Create.with(question.id) do
             div do
               mount Shared::Field, operation.body, label_text: "Answer", &.textarea(rows: "10")
             end

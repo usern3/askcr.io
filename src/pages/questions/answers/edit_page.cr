@@ -1,7 +1,6 @@
 class Questions::Answers::EditPage < MainLayout
   needs operation : SaveAnswer
   needs answer : Answer
-  needs question_id : String
   quick_def page_title, "Edit Answer"
 
   def content
@@ -16,7 +15,7 @@ class Questions::Answers::EditPage < MainLayout
               link "Cancel", to: Questions::Show.with(answer.question), class: "py-2 px-4 bg-gray-200 text-red-500 rounded hover:bg-red-400 focus:outline-none float-right"
             end
           end
-          form_for Questions::Answers::Update.with(question_id, answer.id) do
+          form_for Admin::Questions::Answers::Update.with(answer.question.id, answer.id) do
             div do
               mount Shared::Field, operation.body, &.textarea(rows: "10")
             end

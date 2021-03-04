@@ -1,5 +1,5 @@
 class Admin::Questions::Answers::MarkSolution < QuestionAction
-  post "/questions/:question_id/answers/:answer_id/solution" do
+  post "/admin/questions/:question_id/answers/:answer_id/solution" do
     question = QuestionQuery.find(question_id)
     answer = AnswerQuery.find(answer_id)
     if question.solution_id.nil?

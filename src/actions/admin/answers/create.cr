@@ -1,5 +1,5 @@
 class Admin::Questions::Answers::Create < QuestionAction
-  post "/questions/:question_id/answers" do
+  post "/admin/questions/:question_id/answers" do
     question = QuestionQuery.find(question_id)
     SaveAnswer.create(params, question_id: question.id, author_id: current_user.id, solution: false) do |operation, answer|
       if answer

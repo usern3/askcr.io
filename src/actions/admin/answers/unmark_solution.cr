@@ -1,5 +1,5 @@
 class Admin::Questions::Answers::UnmarkSolution < QuestionAction
-  delete "/questions/:question_id/answers/:answer_id/solution" do
+  delete "/admin/questions/:question_id/answers/:answer_id/solution" do
     question = QuestionQuery.find(question_id)
     answer = AnswerQuery.find(answer_id)
     SaveQuestion.update(question, solution_id: nil) do |op, question|
