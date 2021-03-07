@@ -77,7 +77,7 @@ class Admin::Questions::ShowPage < MainLayout
     div do
       div class: "max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-md" do
         div class: "mt-2 px-8 py-4" do
-          form_for Questions::Answers::Create.with(question_id: question.id), class: "mt-2 text-gray-600 dark:text-gray-300" do
+          form_for Admin::Answers::Create.with(question_id: question.id), class: "mt-2 text-gray-600 dark:text-gray-300" do
             div do
               label_for operation.body, "Quick Reply", class: "block text-lg font-bold leading-5 text-gray-700"
               small "Markdown syntax is supported.", class: "mb-4"
@@ -157,7 +157,7 @@ class Admin::Questions::ShowPage < MainLayout
                   small "Marked as solution!", class: "font-medium mr-4"
                 end
                 if current_user == answer.author
-                  link "Edit", to: Questions::Answers::Edit.with(question.id, answer.id), class: "text-sm"
+                  link "Edit", to: Admin::Answers::Edit.with(question.id, answer.id), class: "text-sm"
                 end
               end
               div class: "flex items-center" do

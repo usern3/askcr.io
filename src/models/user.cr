@@ -14,6 +14,9 @@ class User < BaseModel
     column profile_picture_path : String?
     column soft_deleted_at : Time?
 
+    has_many vote_managers : VoteManager
+    has_many question_votes : Vote, through: [:vote_managers, :question]
+    has_many answer_votes : Vote, through: [:vote_managers, :answer]
     has_many questions : Question, foreign_key: "author_id"
     has_many answers : Answer, foreign_key: "author_id"
   end
