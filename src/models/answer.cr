@@ -9,7 +9,5 @@ class Answer < BaseModel
 
     belongs_to question : Question
     belongs_to author : User
-    has_many vote_managers : VoteManager
-    has_many votes : Vote, through: [:vote_managers, :answer]
   end
 end

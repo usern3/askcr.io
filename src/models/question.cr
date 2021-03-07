@@ -12,8 +12,6 @@ class Question < BaseModel
     belongs_to author : User
     has_many taggings : Tagging
     has_many tags : Tag, through: [:taggings, :tag]
-    has_many vote_managers : VoteManager
-    has_many votes : Vote, through: [:vote_managers, :question]
     has_many answers : Answer
     has_one solution : Answer, foreign_key: solution_id
   end

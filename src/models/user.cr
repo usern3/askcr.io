@@ -9,14 +9,15 @@ class User < BaseModel
     column email : String
     column username : String
     column website_url : String?
+    column github_username : String?
+    column first_name : String?
+    column last_name : String?
+    column location : String?
     column encrypted_password : String
     column role : User::Role
     column profile_picture_path : String?
     column soft_deleted_at : Time?
 
-    has_many vote_managers : VoteManager
-    has_many question_votes : Vote, through: [:vote_managers, :question]
-    has_many answer_votes : Vote, through: [:vote_managers, :answer]
     has_many questions : Question, foreign_key: "author_id"
     has_many answers : Answer, foreign_key: "author_id"
   end
