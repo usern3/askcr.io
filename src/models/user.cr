@@ -17,6 +17,7 @@ class User < BaseModel
     column role : User::Role
     column profile_picture_path : String?
     column soft_deleted_at : Time?
+    column email_confirmed_at : Time?
 
     has_many questions : Question, foreign_key: "author_id"
     has_many answers : Answer, foreign_key: "author_id"

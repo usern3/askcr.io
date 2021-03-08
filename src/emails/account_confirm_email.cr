@@ -1,4 +1,4 @@
-class AccountActivationEmail < BaseEmail
+class AccountConfirmEmail < BaseEmail
   TOKEN_EXPIRES_IN = Time::Span.new(days: 10)
 
   def initialize(@user : User)

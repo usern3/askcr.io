@@ -1,5 +1,5 @@
 class SaveUser < User::SaveOperation
-  permit_columns username, email, website_url, role, profile_picture_path
+  permit_columns username, email, website_url, role, profile_picture_path, email_confirmed_at
   attribute password : String
   attribute password_confirmation : String
   file_attribute :profile_picture

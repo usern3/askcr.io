@@ -1,6 +1,5 @@
 class ConfirmEmail::Confirm < BrowserAction
   include Auth::AllowGuests
-  include Auth::AllowSkipEmailConfirmation
 
   param token : String
 
@@ -29,7 +28,7 @@ class ConfirmEmail::Confirm < BrowserAction
     end
 
     if current_user?
-      redirect to: Home::Index
+      redirect to: Dashboard::Show
     else
       redirect to: SignIns::New
     end

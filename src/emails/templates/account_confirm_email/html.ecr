@@ -1,0 +1,9 @@
+
+<p>Hi <%= @user.username %>,<p>
+
+<p>Thank you for registering and becoming a member of Cattlefinder.</p>
+
+<p>Please click <a href="<%= ConfirmEmail::Confirm.url(@user.id, @token) %>">here</a> to confirm your account and signin.</p>
+
+<p>Thank you</p>
+<p>AskCryst.al Team</p>

@@ -26,4 +26,8 @@ class SignUpUser < User::SaveOperation
     # to ensure you're not breaking any references.
     profile_picture_path.value = "/uploads/#{result.id}"
   end
+
+  def send_confirmation_email(user)
+    AccountConfirmEmail.new(user).deliver
+  end
 end

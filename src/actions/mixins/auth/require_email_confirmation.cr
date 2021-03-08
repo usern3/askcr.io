@@ -13,6 +13,6 @@ module Auth::RequireEmailConfirmation
 
     flash.keep
     flash.info = "Please confirm your email first"
-    redirect to: ConfirmEmails::New
+    redirect to: ConfirmEmail::New
   end
 end
