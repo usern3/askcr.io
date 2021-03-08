@@ -1,6 +1,6 @@
-class Admin::Questions::Edit < BrowserAction
+class Admin::Questions::Edit < AdminAction
   get "/admin/questions/:question_id/edit" do
-    question = QuestionQuery.new.find(question_id)
+    question = QuestionQuery.new.preload_tags.find(question_id)
     html EditPage,
       operation: SaveQuestion.new(question),
       question: question

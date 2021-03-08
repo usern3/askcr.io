@@ -1,4 +1,4 @@
-class Admin::Answers::Edit < BrowserAction
+class Admin::Answers::Edit < AdminAction
   get "/admin/questions/:question_id/answers/:answer_id/edit" do
     answer = AnswerQuery.new.preload_question.find(answer_id)
     question = QuestionQuery.find(answer.question.id)

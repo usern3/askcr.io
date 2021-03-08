@@ -1,6 +1,6 @@
-class Admin::Users::Update < BrowserAction
-  post "/admin/users/:user_id/edit" do
-    user = UserQuery.new.preload_questions(QuestionQuery.new).find(user_id)
+class Admin::Users::Update < AdminAction
+  post "/admin/users/:user_id" do
+    user = UserQuery.new.preload_questions(QuestionQuery.new.preload_tags(TagQuery.new)).find(user_id)
     SaveUser.update(user, params) do |operation, user|
       if operation.saved?
         flash.keep

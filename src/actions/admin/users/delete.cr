@@ -1,4 +1,4 @@
-class Admin::Users::Delete < BrowserAction
+class Admin::Users::Delete < AdminAction
   delete "/admin/users/:user_id" do
     user = UserQuery.find(user_id)
     email = user.email
