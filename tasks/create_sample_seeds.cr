@@ -23,7 +23,5 @@ class Db::CreateSampleSeeds < LuckyCli::Task
     # unless UserQuery.new.email("me@example.com").first?
     #  SaveUser.create!(email: "me@example.com", name: "Jane")
     # end
-    SignUpUser.create!(email: "n.mayersky@hey.com", username: "nolyoi", password: "i090119", password_confirmation: "i090119")
-    puts "Done adding sample data"
   end
 end

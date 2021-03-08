@@ -1,4 +1,4 @@
-class Question < BaseModel
+class Question < BaseModel  
   include Avram::SoftDelete::Model
   
   table do
