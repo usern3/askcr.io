@@ -201,13 +201,3 @@ function registerMenu(menuSelector, openedClasses = 'transition ease-out duratio
     return bindMenuPanel(m, p, openedClasses, closedClasses, sticky);
   }
 }
-
-// Sticky flash msgs
-$('#flash-messages').animate({
-  opacity: 1,
-  right: "20px",
-  bottom: "30px",
-  height: "toggle"
-  }, 1000, function() {
-  // Animation complete.
-  }).css('position','fixed');
