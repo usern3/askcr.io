@@ -25,7 +25,7 @@ class Db::CreateRequiredSeeds < LuckyCli::Task
     # unless UserQuery.new.email("me@example.com").first?
     #  SaveUser.create!(email: "me@example.com", name: "Jane")
     # end
-    SignUpUser.create!(email: "n.mayersky@hey.com", username: "nolyoi", password: "changeme123", password_confirmation: "changeme123", role: User::Role.new(:superadmin))
+    SignUpUser.create!(email: "n.mayersky@hey.com", username: "nolyoi", password: "changeme123", password_confirmation: "changeme123", role: User::Role.new(:superadmin), github_username: "nolyoi")
     puts "Done adding sample data"
   end
 end

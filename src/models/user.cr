@@ -10,14 +10,20 @@ class User < BaseModel
     column username : String
     column website_url : String?
     column github_username : String?
-    column first_name : String?
-    column last_name : String?
     column location : String?
     column encrypted_password : String
     column role : User::Role
     column profile_picture_path : String?
     column soft_deleted_at : Time?
     column email_confirmed_at : Time?
+    column bio : String?
+    column btc_address : String?
+    column eth_address : String?
+    column bch_address : String?
+    column doge_address : String?
+    column nim_address : String?
+    column oxen_address : String?
+    column xmr_address : String?  
 
     has_many questions : Question, foreign_key: "author_id"
     has_many answers : Answer, foreign_key: "author_id"

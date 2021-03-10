@@ -1,5 +1,8 @@
 class Static::HomePage < HomeLayout
   needs operation : SignInUser
+  needs users : UserQuery
+  needs questions : QuestionQuery
+  needs answers : AnswerQuery
 
   def content
     header
@@ -139,7 +142,7 @@ class Static::HomePage < HomeLayout
                   tag "circle", cx: "9", cy: "7", r: "4"
                   tag "path", d: "M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"
                 end
-                h2 "1.1K", class: "title-font font-medium text-3xl text-gray-900"
+                h2 users.size, class: "title-font font-medium text-3xl text-gray-900"
                 para "Users", class: "leading-relaxed"
               end
             end

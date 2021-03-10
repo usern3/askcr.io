@@ -2,7 +2,8 @@ class Admin::Users::Update < AdminAction
   post "/admin/users/:user_id/edit" do
     user = UserQuery.new.preload_questions(QuestionQuery.new.preload_tags(TagQuery.new)).find(user_id)
     SaveUser.update(user, params) do |operation, user|
-      puts operation.errors
+      pp! operation
+      pp! user
       if operation.saved?
         flash.keep
         flash.success = "Profile successfully updated."
