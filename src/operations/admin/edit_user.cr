@@ -18,11 +18,16 @@ class Admin::EditUser < User::SaveOperation
     # If the new file is uploaded, no reason to keep the old one!
     # If multiple models can share an image, run a query before deleting
     # to ensure you're not breaking any references.
+    pp! profile_picture
+    pp! profile_picture.value
+    if (old_profile_picture = profile_picture.value)
+      delete_old_profile_picture(old_profile_picture)
+    end
 
-    profile_picture_path.value = result.id
+    profile_picture_path.value = "uploads/#{result.id}"
   end
 
   private def delete_old_profile_picture(image_id)
-    Shrine::UploadedFile.new(id: image_id, storage_key: "store").delete
+    Shrine::UploadedFile.new(id: image_id).delete
   end
 end
