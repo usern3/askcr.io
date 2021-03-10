@@ -1,7 +1,6 @@
 class Users::Update < BrowserAction
   post "/users/:user_id/edit" do
     SaveUser.update(current_user, params) do |operation, user|
-      pp! operation
       if operation.saved?
         flash.keep
         flash.success = "Profile successfully updated."
