@@ -31,6 +31,6 @@ class SaveUser < User::SaveOperation
   end
 
   private def delete_old_profile_picture(image_id)
-    Shrine::UploadedFile.new(id: image_id).delete
+    Shrine::UploadedFile.new(id: image_id, storage_key: "store").delete
   end
 end
