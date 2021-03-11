@@ -1,5 +1,6 @@
 class SaveUser < User::SaveOperation
-  permit_columns username, email, website_url, role, profile_picture_path
+  permit_columns username, email, website_url, role, profile_picture_path, email_confirmed_at, btc_address, bch_address,
+    doge_address, eth_address, oxen_address, xmr_address, nim_address, bio, location, github_username
   attribute password : String
   attribute password_confirmation : String
   file_attribute :profile_picture
@@ -17,9 +18,15 @@ class SaveUser < User::SaveOperation
 
   private def upload_pic(pic)
     result = Shrine.upload(File.new(pic.tempfile.path), "store", metadata: {"filename" => pic.filename})
-    # If the new file is uploaded, no reason to keep the old one!
-    # If multiple models can share an image, run a query before deleting
-    # to ensure you're not breaking any references.
-    profile_picture_path.value = "/uploads/#{result.id}"
+
+    if old_picture_path = profile_picture_path.value
+      delete_old_profile_picture(old_picture_path)
+    end
+
+    profile_picture_path.value = result.id
+  end
+
+  private def delete_old_profile_picture(image_path : String)
+    Shrine::UploadedFile.new(id: image_path, storage_key: "store").delete
   end
 end

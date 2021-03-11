@@ -1,5 +1,5 @@
 class Users::Update < BrowserAction
-  route do
+  post "/users/:user_id/edit" do
     SaveUser.update(current_user, params) do |operation, user|
       if operation.saved?
         flash.keep

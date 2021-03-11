@@ -71,7 +71,7 @@ class Shared::HeaderNav < BaseComponent
                       end
                     end
                     div class: "py-1" do
-                      a class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900", href: "#", role: "menuitem" do
+                      link to: Questions::Edit.with(current_user), class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900", href: "#", role: "menuitem" do
                         tag "svg", class: "inline h-5 w-5 mr-2", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
                           tag "path", d: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
                         end

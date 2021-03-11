@@ -1,12 +1,13 @@
+# NOTICE: This lockfile contains some overrides from shard.override.yml
 version: 2.0
 shards:
   authentic:
     git: https://github.com/luckyframework/authentic.git
     version: 0.7.2
 
-  avram:
+  avram: # Overridden
     git: https://github.com/luckyframework/avram.git
-    version: 0.19.0
+    version: 0.19.1+git.commit.02496a12c817e2fdfcf6d55834e1380afabe6e2d
 
   awscr-s3:
     git: https://github.com/taylorfinnell/awscr-s3.git
@@ -26,7 +27,7 @@ shards:
 
   breeze:
     git: https://github.com/luckyframework/breeze.git
-    version: 0.1.0+git.commit.4f63e0b57d903953d28771219e088619022b8ed0
+    version: 0.1.0+git.commit.27342737d42fa6a8293d78ed4b457daaf0272eb7
 
   carbon:
     git: https://github.com/luckyframework/carbon.git
@@ -70,7 +71,7 @@ shards:
 
   habitat:
     git: https://github.com/luckyframework/habitat.git
-    version: 0.4.5
+    version: 0.4.6
 
   jwt:
     git: https://github.com/crystal-community/jwt.git

@@ -7,7 +7,7 @@ class SignIns::Create < BrowserAction
         sign_in(authenticated_user)
         flash.keep
         flash.success = "Welcome back! You're now signed in!"
-        redirect_back fallback: Dashboard::Show
+        redirect Dashboard::Show
       else
         flash.failure = "Sign in failed"
         html NewPage, operation: operation

@@ -6,7 +6,7 @@ class Shared::LayoutHead < BaseComponent
   def render
     head do
       utf8_charset
-      title "AskCryst.al - #{@page_title}"
+      title "#{@page_title} - AskCryst.al"
       css_link asset("css/app.css"), data_turbolinks_track: "reload"
       js_link asset("js/app.js"), defer: "true", data_turbolinks_track: "reload"
       meta name: "turbolinks-cache-control", content: "no-cache"

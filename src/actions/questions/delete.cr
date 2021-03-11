@@ -4,7 +4,7 @@ class Questions::Delete < BrowserAction
     question.tags.each do |tag|
       SaveTag.update!(tag, question_count: tag.question_count - 1)
     end
-    question.delete
+    question.soft_delete
     flash.success = "Question removed successfully."
     redirect Index
   end

@@ -4,9 +4,9 @@ class SignUps::Create < BrowserAction
   post "/sign_up" do
     SignUpUser.create(params, role: User::Role.new(:member)) do |operation, user|
       if user
-        flash.success = "You're now a registered user! Now, start asking and answering questions!"
-        sign_in(user)
-        redirect to: Dashboard::Show
+        flash.success = "Verify your e-mail and login!"
+        AccountConfirmEmail.new(user).deliver
+        redirect to: SignIns::New
       else
         flash.info = "Couldn't sign you up"
         html NewPage, operation: operation
