@@ -1,4 +1,4 @@
-class Admin::Questions::Answers::Update < BrowserAction
+class Questions::Answers::Update < BrowserAction
   post "/admin/questions/:question_isanswers/:answer_id" do
     answer = AnswerQuery.new.preload_question.find(answer_id)
     SaveAnswer.update(answer, params) do |operation, answer|

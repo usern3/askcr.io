@@ -1,4 +1,4 @@
-class Questions::Answers::NewPage < MainLayout
+class Admin::Answers::NewPage < MainLayout
   needs operation : SaveAnswer
   needs question : Question
   quick_def page_title, "New Answer"
@@ -16,9 +16,9 @@ class Questions::Answers::NewPage < MainLayout
             end
           end
           render_question
-          form_for Questions::Answers::Create.with(question.id) do
+          form_for Admin::Answers::Create.with(question.id) do
             div do
-              mount Shared::Field, operation.body, label_text: "Answer", &.textarea(rows: "10")
+              mount ::Shared::Field, operation.body, label_text: "Answer", &.textarea(rows: "10")
             end
             div class: "place-self-center text-center mt-4" do
               button type: "submit", data_disable_with: "Saving...", class: "inline-flex items-center py-2 px-4 bg-gray-700 text-white border-gray-800 rounded hover:bg-green-500 hover:text-green-100 focus:outline-none place-self-center" do

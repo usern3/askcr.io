@@ -1,4 +1,4 @@
-class Admin::Questions::Answers::MarkSolution < QuestionAction
+class Questions::Answers::MarkSolution < QuestionAction
   post "/questions/:question_id/answers/:answer_id/solution" do
     question = QuestionQuery.find(question_id)
     answer = AnswerQuery.find(answer_id)

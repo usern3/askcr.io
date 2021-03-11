@@ -4,11 +4,7 @@ class Questions::Answers::Edit < BrowserAction
     question = QuestionQuery.find(question_id)
     html EditPage,
       operation: SaveAnswer.new,
-<<<<<<< HEAD
-      answer: answer
-=======
       answer: answer,
       question: question
->>>>>>> 906ca1639dc65a14a90cb9021e764fab39f4e13b
   end
 end
