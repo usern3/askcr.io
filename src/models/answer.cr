@@ -1,6 +1,6 @@
 class Answer < BaseModel
   include Avram::SoftDelete::Model
-  
+
   table do
     column body : String
     column parsed_body : String

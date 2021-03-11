@@ -9,7 +9,7 @@ class Admin::Users::IndexPage < AdminLayout
       div class: "w-full max-w-6xl mx-auto" do
         div class: "grid gap-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3" do
           div class: "sm:col-span-1 md:col-span-3 align-baseline align-middle justify-between items-center" do
-            div do  
+            div do
               h1 "All Questions", class: "text-2xl text-gray-800 font-bold align-baseline"
               small "A list of all questions registered in the application."
             end

@@ -1,6 +1,6 @@
-class Question < BaseModel  
+class Question < BaseModel
   include Avram::SoftDelete::Model
-  
+
   table do
     column title : String
     column body : String

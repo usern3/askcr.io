@@ -110,7 +110,7 @@ class Users::EditPage < AdminLayout
                 end
               end
               div class: "flex justify-end mt-6" do
-                submit "Update",  data_disable_with: "Replying...", class: "bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-500 hover:text-white focus:outline-none focus:bg-gray-500 focus:text-white"
+                submit "Update", data_disable_with: "Replying...", class: "bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-500 hover:text-white focus:outline-none focus:bg-gray-500 focus:text-white"
               end
             end
           end

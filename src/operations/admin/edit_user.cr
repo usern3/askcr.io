@@ -1,6 +1,6 @@
 class Admin::EditUser < User::SaveOperation
-  permit_columns username, email, website_url, role, profile_picture_path, email_confirmed_at, btc_address, bch_address, 
-                 doge_address, eth_address, oxen_address, xmr_address, nim_address, bio, location, github_username
+  permit_columns username, email, website_url, role, profile_picture_path, email_confirmed_at, btc_address, bch_address,
+    doge_address, eth_address, oxen_address, xmr_address, nim_address, bio, location, github_username
 
   file_attribute :profile_picture
 
@@ -12,7 +12,7 @@ class Admin::EditUser < User::SaveOperation
     validate_required role
     profile_picture.value.try { |pic| upload_pic(pic) }
   end
- 
+
   private def upload_pic(pic)
     result = Shrine.upload(File.new(pic.tempfile.path), "store", metadata: {"filename" => pic.filename})
 

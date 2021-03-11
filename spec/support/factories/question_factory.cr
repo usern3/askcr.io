@@ -5,4 +5,3 @@ class QuestionFactory < Avram::Factory
     solved false
   end
 end
- 

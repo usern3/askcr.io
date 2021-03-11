@@ -23,7 +23,7 @@ class User < BaseModel
     column doge_address : String?
     column nim_address : String?
     column oxen_address : String?
-    column xmr_address : String?  
+    column xmr_address : String?
 
     has_many questions : Question, foreign_key: "author_id"
     has_many answers : Answer, foreign_key: "author_id"

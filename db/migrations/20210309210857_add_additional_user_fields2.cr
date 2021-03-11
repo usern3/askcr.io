@@ -8,7 +8,7 @@ class AddAdditionalUserFields2::V20210309210857 < Avram::Migrator::Migration::V1
       add doge_address : String?
       add nim_address : String?
       add oxen_address : String?
-      add xmr_address : String?    
+      add xmr_address : String?
     end
   end
 

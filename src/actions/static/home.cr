@@ -2,7 +2,7 @@ class Static::Home < BrowserAction
   include Auth::AllowGuests
 
   get "/" do
-    users = UserQuery.new 
+    users = UserQuery.new
     answers = AnswerQuery.new
     tags = TagQuery.new
     questions = QuestionQuery.new

@@ -1,6 +1,6 @@
 class SaveUser < User::SaveOperation
-  permit_columns username, email, website_url, role, profile_picture_path, email_confirmed_at, btc_address, bch_address, 
-                 doge_address, eth_address, oxen_address, xmr_address, nim_address, bio, location, github_username
+  permit_columns username, email, website_url, role, profile_picture_path, email_confirmed_at, btc_address, bch_address,
+    doge_address, eth_address, oxen_address, xmr_address, nim_address, bio, location, github_username
   attribute password : String
   attribute password_confirmation : String
   file_attribute :profile_picture
@@ -15,7 +15,7 @@ class SaveUser < User::SaveOperation
     Authentic.copy_and_encrypt password, to: encrypted_password
     profile_picture.value.try { |pic| upload_pic(pic) }
   end
- 
+
   private def upload_pic(pic)
     result = Shrine.upload(File.new(pic.tempfile.path), "store", metadata: {"filename" => pic.filename})
 

@@ -6,7 +6,7 @@ class Shared::FlashMessages < BaseComponent
     flash.each do |flash_type, flash_message|
       color = flash_color flash_type
       flash_id = "flash-#{flash_type}-#{flash_index}"
-      #div id: "flash-messages", class: "cornerbox float-right" do
+      # div id: "flash-messages", class: "cornerbox float-right" do
       div id: "flash-messages", class: "boxmessages w-full max-w-sm" do
         div id: flash_id, class: "flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 mt-6" do
           div class: "flex items-center justify-center w-12 bg-#{color}-500" do
@@ -27,7 +27,7 @@ class Shared::FlashMessages < BaseComponent
           end
         end
       end
-      #end
+      # end
       flash_index += 1
     end
   end
