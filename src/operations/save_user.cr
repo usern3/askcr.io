@@ -18,19 +18,15 @@ class SaveUser < User::SaveOperation
  
   private def upload_pic(pic)
     result = Shrine.upload(File.new(pic.tempfile.path), "store", metadata: {"filename" => pic.filename})
-    # If the new file is uploaded, no reason to keep the old one!
-    # If multiple models can share an image, run a query before deleting
-    # to ensure you're not breaking any references.
-    pp! profile_picture
-    pp! profile_picture.value
-    if (old_profile_picture = profile_picture.value)
-      delete_old_profile_picture(old_profile_picture)
+
+    if old_picture_path = profile_picture_path.value
+      delete_old_profile_picture(old_picture_path)
     end
 
-    profile_picture_path.value = "uploads/#{result.id}"
+    profile_picture_path.value = result.id
   end
 
-  private def delete_old_profile_picture(image_id)
-    Shrine::UploadedFile.new(id: image_id, storage_key: "store").delete
+  private def delete_old_profile_picture(image_path : String)
+    Shrine::UploadedFile.new(id: image_path, storage_key: "store").delete
   end
 end
