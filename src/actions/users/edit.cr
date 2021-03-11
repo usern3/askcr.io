@@ -1,5 +1,5 @@
 class Users::Edit < BrowserAction
-  route do
+  get "/users/:user_id/edit" do
     html EditPage,
       operation: SaveUser.new(current_user),
       user: current_user

@@ -7,10 +7,15 @@ class Admin::Users::IndexPage < AdminLayout
   def content
     div class: "container mx-auto mt-2 min-h-screen" do
       div class: "w-full max-w-6xl mx-auto" do
-        div class: "grid gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3" do
-          div class: "sm:col-span-1 md:col-span-3 align-baseline" do
-            h1 "All Users", class: "text-2xl text-gray-800 font-bold align-baseline"
-            small "A list of all users registered in the application."
+        div class: "grid gap-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3" do
+          div class: "sm:col-span-1 md:col-span-3 align-baseline align-middle justify-between items-center" do
+            div do
+              h1 "All Questions", class: "text-2xl text-gray-800 font-bold align-baseline"
+              small "A list of all questions registered in the application."
+            end
+            div do
+              mount ::Shared::BackButton
+            end
           end
           users_list
         end
@@ -57,11 +62,13 @@ class Admin::Users::IndexPage < AdminLayout
             end
             div class: "col-span-1 mb-2 self-center" do
               if user.role.admin? || user.role.superadmin?
-                span "Admin", class: "text-red-600"
+                span "Admin", class: "text-indigo-600"
               elsif user.role.moderator?
                 span "Moderator", class: "text-green-600"
-              else
+              elsif user.role.member?
                 span "Member", class: "text-gray-800"
+              elsif user.role.banned?
+                span "Banned", class: "text-red-500"
               end
             end
             div class: "col-span-2 text-center mb-2 self-center text-center" do

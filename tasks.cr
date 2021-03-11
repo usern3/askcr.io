@@ -15,7 +15,5 @@ require "./tasks/**"
 require "./db/migrations/**"
 
 # Load Lucky tasks (dev, routes, etc.)
-require "lucky/tasks/**"
-require "breeze/tasks/**"
 
 LuckyCli::Runner.run

@@ -38,5 +38,3 @@ dependencies:
   markd:
     github: icyleaf/markd
     version: ~> 0.2.1
-  breeze:
-    github: luckyframework/breeze

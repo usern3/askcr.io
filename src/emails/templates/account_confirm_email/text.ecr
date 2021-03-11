@@ -1,0 +1,8 @@
+Hi <%= @user.username %>,
+
+Thank you for registering and becoming a member of Cattlefinder.
+
+Please click <%= ConfirmEmail::Confirm.url(@user.id, @token) %> to confirm your account and signin.
+
+Thank you
+AskCryst.al Team

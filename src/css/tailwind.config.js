@@ -21,6 +21,7 @@ module.exports = {
       gridTemplateColumns: {
         // Simple 16 column grid
        '16': 'repeat(16, minmax(0, 1fr))',
+       '17': 'repeat(16, minmax(0, 1fr))',
       },
       spacing: {
             128: '32rem',

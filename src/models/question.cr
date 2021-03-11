@@ -1,4 +1,6 @@
 class Question < BaseModel
+  include Avram::SoftDelete::Model
+
   table do
     column title : String
     column body : String
@@ -12,5 +14,9 @@ class Question < BaseModel
     has_many tags : Tag, through: [:taggings, :tag]
     has_many answers : Answer
     has_one solution : Answer, foreign_key: solution_id
+  end
+
+  def solved?
+    true unless self.solution_id.nil?
   end
 end

@@ -1,4 +1,4 @@
-class Admin::Tags::Delete < BrowserAction
+class Admin::Tags::Delete < AdminAction
   delete "/admin/tags/:tag_id" do
     tag = TagQuery.find(tag_id)
     name = tag.name
