@@ -1,0 +1,13 @@
+https://github.com/heroku/heroku-buildpack-nodejs
+https://github.com/luckyframework/heroku-buildpack-crystal
+
+dokku apps:create app.askcr.io
+dokku postgres:create askcr_prod
+dokku postgres:link askcr_db app.askcr.io
+dokku config:set app.askcr.io DATABASE_URL=postgres://postgres:38438a43dc1c62db7d6da585b14a0564@dokku-postgres-askcr-prod:5432/askcr_prod
+dokku postgres:link postgres://poaskcr_prod app.askcr.io
+dokku config:set app.askcr.io LUCKY_ENV=production
+dokku config:set app.askcr.io APP_DOMAIN=aapp.askcr.io
+
+dokku config:set app.askcr.io PORT=5000
+dokku config:set app.askcr.io SECRET_KEY_BASE=d7IRG/pMX124rlp++FD1oIYdNYK283ixtFRHbkhK6go=

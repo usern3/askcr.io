@@ -38,7 +38,7 @@ class Shared::HeaderNav < BaseComponent
               button aria_label: "toggle profile dropdown", class: "dropdown inline-block text-left relative flex items-center focus:outline-none", type: "button" do
                 div class: "h-8 w-8 overflow-hidden rounded-full border-2 border-gray-400", id: "options-menu", aria_haspopup: "true", aria_expanded: "false" do
                   if !current_user.profile_picture_path.nil?
-                    img alt: "avatar", class: "h-full w-full object-cover", src: current_user.profile_picture_path.not_nil!
+                    img alt: "avatar", class: "h-full w-full object-cover", src: "/uploads/#current_user.profile_picture_path.not_nil!"
                   else
                     img alt: "avatar", class: "h-full w-full object-cover", src: "https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g"
                   end
@@ -85,7 +85,7 @@ class Shared::HeaderNav < BaseComponent
                       end
                     end
                     div class: "py-1" do
-                      a class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900", href: "#", role: "menuitem" do
+                      a class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900", href: "", role: "menuitem" do
                         tag "svg", class: "inline h-5 w-5 mr-2", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" do
                           tag "path", d: "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2"
                         end

@@ -31,7 +31,6 @@ abstract class AdminLayout
       body class: "min-h-screen bg-gray-100" do
         mount Admin::Shared::HeaderNav, current_user: current_user
         content
-
         footer
         mount Shared::FlashMessages, context.flash
       end
