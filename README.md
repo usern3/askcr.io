@@ -12,14 +12,14 @@ Also, whichever coin raises the most before launch will have a nice advertisemen
 - BTC (bc1qkjd9vdvmgmzwma786guc8u04rztnuat3alm3ks)
 - ETH (0x4Ed9693609e19De3C97813E851f877EeBc9abd3f)
 - BCH (qqpjvu533z0r4j0mex9s73epenttrvsa7sqdqnu3zw)
-- DOGE (DSjUEhPiaD4W61UexYzb4iftiefe4iuHFB)
+- DOGE (DAcki7ik3mg4zbWViBJZ7QyTFAPCqhurss)
 - XMR (LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr)
 - OXEN (LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr)
 - NIM (NQ88 Y1P7 DMTV 1C6F LAY0 60DN SRN9 VM36 0CDN)
 - [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G83QD5W)
 - [![Image of Yaktocat](https://img.shields.io/liberapay/goal/nolyoi.svg?logo=liberapay)](https://liberapay.com/nolyoi/)
 
-Whichever coin raises the most pre-launch will reveive a special advertising spot for the life of this application! Enjoy! Donors can also have their name and website listed on our donor's page if they choose to (put it in the tx memo if you want to be listed!
+Top 3 donors will have a spor on our homepage with their name, quote, and/or link to anything they'd like. All other doners will be listed on our donors page!
 
 Thank you for reading! Oh and here's some preview screen caps below!
 
