@@ -13,7 +13,7 @@ Also, whichever coin raises the most before launch will have a nice advertisemen
 - ETH (0x4Ed9693609e19De3C97813E851f877EeBc9abd3f)
 - BCH (qqpjvu533z0r4j0mex9s73epenttrvsa7sqdqnu3zw)
 - DOGE (DAcki7ik3mg4zbWViBJZ7QyTFAPCqhurss)
-- XMR (LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr)
+- XMR (47M2D2xz6ygPxhSJHRgYw73mAVPJRsU1AF89i2fZZRtee1z4YnaYwHABoohfhPjq1mS81h24SxSvsBeWvRPZJgZREPh2qTE )
 - OXEN (LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr)
 - NIM (NQ88 Y1P7 DMTV 1C6F LAY0 60DN SRN9 VM36 0CDN)
 - [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G83QD5W)
