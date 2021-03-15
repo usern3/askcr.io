@@ -1,6 +1,3 @@
-https://github.com/heroku/heroku-buildpack-nodejs
-https://github.com/luckyframework/heroku-buildpack-crystal
-
 dokku apps:create app.askcr.io
 dokku postgres:create askcr_prod
 dokku postgres:link askcr_db app.askcr.io

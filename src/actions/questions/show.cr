@@ -6,3 +6,4 @@ class Questions::Show < AdminAction
     html ShowPage, question: question, operation: op, answers: answers, pages: pages
   end
 end
+
