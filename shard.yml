@@ -37,4 +37,4 @@ dependencies:
     version: ~> 0.2.0
   markd:
     github: icyleaf/markd
-    version: ~> 0.2.1
+    version: ~> 0.3.0
