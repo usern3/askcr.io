@@ -16,4 +16,3 @@ class Users::EditPage < AdminLayout
     end
   end
 end
- 
