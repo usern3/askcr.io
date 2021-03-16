@@ -1,4 +1,4 @@
-// Lucky generates 3 folders to help you organize your CSS:
+/* // Lucky generates 3 folders to help you organize your CSS:
 //
 //    - src/css/variables # Files for colors, spacing, etc.
 //    - src/css/mixins # Put your mixin functions in files here
@@ -13,12 +13,12 @@
 
 // Add your own components and import them like this:
 //
-// @import "components/my_new_component";
+// @import "components/my_new_component"; */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-// @import "~normalize-scss/sass/normalize/import-now";
+/* @import "~normalize-scss/sass/normalize/import-now"; */
 
 .pattern {
   background-color: #121827;

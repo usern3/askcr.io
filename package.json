@@ -10,13 +10,13 @@
   "dependencies": {
     "@babel/compat-data": "^7.9.0",
     "@rails/ujs": "^6.0.0",
-    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "@tailwindcss/jit": "^0.1.1",
     "autoprefixer": "^10.2.4",
     "chart.js": "^2.9.4",
     "highlight.js": "^10.5.0",
     "normalize-scss": "^7.0.1",
-    "postcss": "^8.2.4",
-    "tailwindcss": "^2.0.2",
+    "postcss": "^8.2.8",
+    "tailwindcss": "^2.0.3",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.12"
   },
@@ -28,9 +28,10 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
-    "compression-webpack-plugin": "^3.0.0",
-    "laravel-mix": "^4.0.0",
-    "resolve-url-loader": "2.3.1",
+    "compression-webpack-plugin": "^7.1.2",
+    "eslint": "^7.22.0",
+    "laravel-mix": "^6.0.13",
+    "resolve-url-loader": "3.1.2",
     "sass": "1.17.1",
     "sass-loader": "^7.3.1",
     "vue-template-compiler": "^2.5.22"
