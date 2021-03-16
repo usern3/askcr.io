@@ -6,8 +6,7 @@ class PasswordResetRequestEmail < BaseEmail
     @token = stubbed_token || Authentic.generate_password_reset_token(@user)
   end
 
-  to @user
-  from "myapp@support.com" # or set a default in src/emails/base_email.cr
-  subject "Reset your password"
+  to @user 
+  subject "Askcr.io - Reset your password"
   templates html, text
 end

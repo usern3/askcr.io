@@ -15,7 +15,7 @@ class Shared::HeaderNav < BaseComponent
         div class: "md:flex md:items-center md:justify-between" do
           div class: "flex justify-between items-center" do
             div class: "text-xl font-semibold text-gray-700" do
-              link "Ask.cr", to: Dashboard::Show, class: "text-gray-800 dark:text-white text-xl font-bold md:text-2xl hover:text-gray-700 dark:hover:text-gray-300"
+              link "Askcr.io", to: Dashboard::Show, class: "text-gray-800 dark:text-white text-xl font-bold md:text-2xl hover:text-gray-700 dark:hover:text-gray-300"
             end
             div class: "flex md:hidden" do
               button aria_label: "toggle menu", class: "text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400", type: "button" do

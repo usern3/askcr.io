@@ -6,6 +6,6 @@ class AccountConfirmEmail < BaseEmail
   end
 
   to @user
-  subject "Verify your account"
+  subject "Askcr.io - Activate your new account!"
   templates text, html
 end

@@ -21,7 +21,7 @@ class Admin::Shared::HeaderNav < BaseComponent
           div class: "flex justify-between items-center" do
             div class: "text-xl font-semibold text-white" do
               link to: Admin::Index, class: "text-white dark:text-white text-xl font-bold md:text-2xl hover:text-gray-100 dark:hover:text-gray-300" do
-                text "AskCryst.al"
+                text "Askcr.io"
                 span "Admin", class: "ml-1 text-indigo-400 hover:text-indigo-500 text-xl font-bold md:text-2xl"
               end
             end

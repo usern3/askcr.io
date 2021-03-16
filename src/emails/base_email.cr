@@ -6,6 +6,6 @@ abstract class BaseEmail < Carbon::Email
   end
 
   def default_from
-    Carbon::Address.new("AskCryst.al", "no-reply@askcryst.al")
+    Carbon::Address.new("Askcr.io", "no-reply@askcr.io")
   end
 end
