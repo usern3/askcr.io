@@ -7,7 +7,6 @@ start_server
 *.dwarf
 *.local.cr
 .env
-/tmp
 /public/js
 /public/css
 /public/mix-manifest.json
