@@ -9,9 +9,9 @@ class SignIns::NewPage < AuthLayout
     div class: "container mt-20" do
       div class: "bg-white dark:bg-gray-800 w-full max-w-sm rounded-lg shadow-md overflow-hidden mx-auto" do
         div class: "py-4 px-6" do
-          h2 "Ask.cr", class: "text-center font-bold text-gray-700 dark:text-white text-3xl"
-          h3 "Welcome Back", class: "mt-1 text-center font-medium text-gray-600 dark:text-gray-200 text-xl"
-          para "Login or create account", class: "mt-1 text-center text-gray-500 dark:text-gray-400"
+          h2 "Askcr.io", class: "text-center font-bold text-gray-700 dark:text-white text-3xl"
+          h3 "Welcome Back!", class: "mt-1 text-center font-medium text-gray-600 dark:text-gray-200 text-xl"
+          para "Login or create account below.", class: "mt-1 text-center text-gray-500 dark:text-gray-400"
           form_for SignIns::Create do
             div class: "mt-4 w-full" do
               mount Shared::Field, attribute: op.email, &.email_input(autofocus: "true", replace_class: "w-full mt-2 py-2 px-4 bg-white dark:bg-gray-800 text-gray-700 border border-gray-300 dark:border-gray-600 rounded block placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", placeholder: "E-mail Address")

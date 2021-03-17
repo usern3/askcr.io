@@ -17,22 +17,38 @@ class SignUps::NewPage < AuthLayout
               div class: "grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4" do
                 div do
                   label "Username", class: "text-gray-700 dark:text-gray-200"
-                  mount Shared::Field, attribute: op.username, &.text_input(autofocus: "true", append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
+                  mount Shared::LabellessField, attribute: op.username, &.text_input(autofocus: true, append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
                 end
                 div do
                   label "Email Address", class: "text-gray-700 dark:text-gray-200"
-                  mount Shared::Field, attribute: op.email, &.email_input(autofocus: "true", append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
+                  mount Shared::LabellessField, attribute: op.email, &.email_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
                 end
                 div do
                   label "Password", class: "text-gray-700 dark:text-gray-200"
-                  mount Shared::Field, attribute: op.password, &.password_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
+                  mount Shared::LabellessField, attribute: op.password, &.password_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
                 end
                 div do
                   label "Password Confirmation", class: "text-gray-700 dark:text-gray-200"
-                  mount Shared::Field, attribute: op.password_confirmation, &.password_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
+                  mount Shared::LabellessField, attribute: op.password_confirmation, &.password_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
+                end
+                div do
+                  label "Personal Website", class: "text-gray-700 dark:text-gray-200"
+                  mount Shared::LabellessField, attribute: op.website_url, &.text_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
+                end
+                div do
+                  label "Github Username", class: "text-gray-700 dark:text-gray-200"
+                  mount Shared::LabellessField, attribute: op.github_username, &.text_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
+                end
+                div do
+                  label "BTC Address", class: "text-gray-700 dark:text-gray-200"
+                  mount Shared::LabellessField, attribute: op.btc_address, &.text_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
+                end
+                div do
+                  label "NIM Address", class: "text-gray-700 dark:text-gray-200"
+                  mount Shared::LabellessField, attribute: op.nim_address, &.text_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
                 end
                 div class: "col-span-2" do
-                  mount Shared::Field, op.profile_picture, label_text: "Avatar", &.file_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
+                  mount Shared::LabellessField, op.profile_picture, label_text: "Avatar", &.file_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
                 end
               end
               div class: "flex justify-end mt-6" do

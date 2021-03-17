@@ -1,25 +1,5 @@
 
-GET [4m/users/1/edit[0m
- [2m▸[0m Handled by [1mUsers::Edit[0m
- [2m▸[0m Rendered [1mUsers::EditPage[0m
- [2m▸[0m Sent [1m200 OK[0m (17.83ms)
-
-GET [4m/users/1/edit[0m
- [2m▸[0m Handled by [1mUsers::Edit[0m
- [2m▸[0m Rendered [1mUsers::EditPage[0m
- [2m▸[0m Sent [1m200 OK[0m (17.02ms)
-
-POST [4m/users/1/edit[0m
- [2m▸[0m Handled by [1mUsers::Update[0m
- [33m▸[0m Failed to save [33;1mEditUser[0m. Validation errors [1mnew_password_confirmation must match[0m
- [2m▸[0m Rendered [1mUsers::EditPage[0m
- [2m▸[0m Sent [1m200 OK[0m (47.24ms)
-
-POST [4m/users/1/edit[0m
- [2m▸[0m Handled by [1mUsers::Update[0m
- [2m▸[0m Sent [1m302 Found[0m (43.2ms)
-
-GET [4m/sign_in[0m
- [2m▸[0m Handled by [1mSignIns::New[0m
- [2m▸[0m Rendered [1mSignIns::NewPage[0m
- [2m▸[0m Sent [1m200 OK[0m (1.19ms)
+GET [4m/sign_up[0m
+ [2m▸[0m Handled by [1mSignUps::New[0m
+ [2m▸[0m Rendered [1mSignUps::NewPage[0m
+ [2m▸[0m Sent [1m200 OK[0m (2.25ms)

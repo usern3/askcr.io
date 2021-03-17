@@ -2,7 +2,6 @@ class Users::Update < BrowserAction
   include ErrorFormatters
   post "/users/:user_id/edit" do
     EditUser.update(current_user, params, user: current_user) do |operation, user|
-      pp! operation.password_changes_success.value
       if operation.saved?
         if operation.password_changes_success.value
           sign_out
