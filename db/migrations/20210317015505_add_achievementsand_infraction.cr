@@ -18,7 +18,7 @@ class AddAchievementsandInfraction::V20210317015505 < Avram::Migrator::Migration
       add soft_deleted_at : Time?
       add_belongs_to user : User, on_delete: :cascade
     end
-end
+  end
 
   def rollback
     drop table_for(Achievement)
