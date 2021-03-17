@@ -62,7 +62,7 @@ class EditUser < User::SaveOperation
 
   def log_changes(user : User)
     # Get changed attributes and log each of them
-    attributes.select(&.changed).each do |attribute|
+    attributes.select(&.changed?).each do |attribute|
       Log.dexter.info do
         {
           user_id: user.id,
