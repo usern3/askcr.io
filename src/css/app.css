@@ -42,5 +42,6 @@
 }
 .dropdown:hover .dropdown-menu {
   display: block;
+  z-index: 1000;
   right: 1px;
 }
