@@ -8,6 +8,8 @@ class EditUser < User::SaveOperation
   attribute password_changes_success : Bool = false
   file_attribute :profile_picture
 
+  after_save log_changes
+
   before_save do
     validate_uniqueness_of email
     validate_uniqueness_of username
@@ -54,6 +56,20 @@ class EditUser < User::SaveOperation
         password_changes_success.value = true
       else
         password.add_error "was incorrect."
+      end
+    end
+  end
+
+  def log_changes(user : User)
+    # Get changed attributes and log each of them
+    attributes.select(&.changed).each do |attribute|
+      Log.dexter.info do
+        {
+          user_id: user.id,
+          changed_attribute: attribute.name.to_s,
+          from: attribute.original_value.to_s,
+          to: attribute.value.to_s
+        }
       end
     end
   end
