@@ -27,7 +27,7 @@ class EditUser < User::SaveOperation
       delete_old_profile_picture(old_picture_path)
     end
 
-    profile_picture_path.value = "/uploads/#{result.id}"
+    profile_picture_path.value = result.id
   end
 
   private def delete_old_profile_picture(image_path : String)

@@ -24,7 +24,7 @@ class SignUpUser < User::SaveOperation
     # If the new file is uploaded, no reason to keep the old one!
     # If multiple models can share an image, run a query before deleting
     # to ensure you're not breaking any references.
-    profile_picture_path.value = "/uploads/#{result.id}"
+    profile_picture_path.value = result.id
   end
 
   def send_confirmation_email(user)
