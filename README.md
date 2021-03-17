@@ -4,7 +4,7 @@ This is a project written using [Lucky](https://luckyframework.org) and is inspi
 
 Users will be able to ask, answer, mark solutions to their questions, earn achievements, tip each other via various crypto methods and more top secret feaures coming soon!
 
-The project is currently being re-written and the initial release is abouot 80% done for it's initial release!
+The project is currently being re-written and the initial release is abouot 80% done for it's initial release! You can play with the testing version here: https://askcrio.herokuapp.com/
 
 If you'd like to help, please feel free to open up issues or contribute code. As of now I'm doing this all on my own. 
 
