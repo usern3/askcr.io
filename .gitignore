@@ -13,3 +13,4 @@ start_server
 /node_modules
 yarn-error.log
 /public/uploads/*
+donators.txt
