@@ -10,7 +10,7 @@ module Auth::RequireAdmin
       Authentic.remember_requested_path(self)
       flash.keep
       flash.failure = "Sorry, you are not authorized to view that!"
-      redirect_back fallback: Dashboard::Show
+      redirect Dashboard::Show
     end
   end
 
