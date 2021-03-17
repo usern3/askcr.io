@@ -1,24 +1,46 @@
+require "carbon_mailgun_adapter"
+
 BaseEmail.configure do |settings|
   if Lucky::Env.production?
-    # If you don't need to send emails, set the adapter to DevAdapter instead:
-    #
-    #   settings.adapter = Carbon::DevAdapter.new
-    #
-    # If you do need emails, get a key from SendGrid and set an ENV variable
-    send_grid_key = send_grid_key_from_env
-    settings.adapter = Carbon::SendGridAdapter.new(api_key: send_grid_key)
+    mailgun_key = mailgun_key_from_env
+    if mailgun_key == ""
+      # disable email if there's no key
+      settings.adapter = Carbon::DevAdapter.new
+    else
+      mailgun_base_uri = mailgun_base_uri_from_env
+      mailgun_send_domain = mailgun_send_domain_from_env
+      settings.adapter = Carbon::MailgunAdapter.new(api_key: mailgun_key, base_uri: mailgun_base_uri, send_domain: mailgun_send_domain)
+    end
   elsif Lucky::Env.development?
     settings.adapter = Carbon::DevAdapter.new(print_emails: true)
   else
-    settings.adapter = Carbon::DevAdapter.new(print_emails: true)
+    settings.adapter = Carbon::DevAdapter.new
   end
 end
 
-private def send_grid_key_from_env
-  ENV["SEND_GRID_KEY"]? || raise_missing_key_message
+private def mailgun_key_from_env
+  ENV["MAILGUN_API_KEY"]? || raise_missing_key_message
+end
+
+private def mailgun_base_uri_from_env
+  ENV["MAILGUN_BASE_URI"]? || raise_missing_base_uri_message
+end
+
+private def mailgun_send_domain_from_env
+  ENV["MAILGUN_SEND_DOMAIN"]? || raise_missing_send_domain_message
 end
 
 private def raise_missing_key_message
-  puts "Missing SEND_GRID_KEY. Set the SEND_GRID_KEY env variable to 'unused' if not sending emails, or set the SEND_GRID_KEY ENV var.".colorize.red
+  puts "Missing MAILGUN_API_KEY. Set the MAILGUN_API_KEY env variable to '' if not sending emails, or set the MAILGUN_API_KEY ENV var.".colorize.red
+  exit(1)
+end
+
+private def raise_missing_base_uri_message
+  puts "Missing MAILGUN_BASE_URI ENV var.".colorize.red
+  exit(1)
+end
+
+private def raise_missing_send_domain_message
+  puts "Missing MAILGUN_SEND_DOMAIN ENV var.".colorize.red
   exit(1)
 end

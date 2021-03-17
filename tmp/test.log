@@ -1,0 +1,5 @@
+
+GET [4m/sign_up[0m
+ [2m▸[0m Handled by [1mSignUps::New[0m
+ [2m▸[0m Rendered [1mSignUps::NewPage[0m
+ [2m▸[0m Sent [1m200 OK[0m (2.5ms)
