@@ -14,6 +14,7 @@ Also, whichever coin raises the most before launch will have a nice advertisemen
 - BTC (bc1qkjd9vdvmgmzwma786guc8u04rztnuat3alm3ks)
 - ALGO (2O7YZ3D7Z26XVGHBHOIXVOBMFZR2BORYJNS4K4MRH72CC323RQSOADG32A)
 - BCH (bitcoincash:qpgr0cynas2drss4l6rqjp3zeccjc75cks6vl8yux9)
+- ETH (0x4Ed9693609e19De3C97813E851f877EeBc9abd3f)
 - DOGE (DCaSTcvrXbdM9G9XKs33ZKZQMtF6GVZydw)
 - XMR (47M2D2xz6ygPxhSJHRgYw73mAVPJRsU1AF89i2fZZRtee1z4YnaYwHABoohfhPjq1mS81h24SxSvsBeWvRPZJgZREPh2qTE )
 - OXEN (LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr)
