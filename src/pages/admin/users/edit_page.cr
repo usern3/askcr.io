@@ -102,7 +102,7 @@ class Admin::Users::EditPage < AdminLayout
                 div do
                   div class: "h-20 w-20 mb-4" do
                     if !user.profile_picture_path.nil?
-                      img alt: "avatar", class: "h-full w-full object-cover", src: "/uploads/#{user.profile_picture_path.not_nil!}"
+                      img alt: "avatar", class: "h-full w-full object-cover", src: user.profile_picture_path.not_nil!
                     else
                       img alt: "avatar", class: "h-full w-full object-cover", src: "https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g"
                     end

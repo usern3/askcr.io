@@ -45,7 +45,7 @@ class Questions::IndexPage < MainLayout
             link pluralize_reply(question.answers.size), to: Questions::Show.with(question.id), class: "text-blue-600 dark:text-blue-400 hover:underline"
             div class: "flex items-center" do
               if !question.author.profile_picture_path.nil?
-                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "/uploads/#{question.author.profile_picture_path.not_nil!}"
+                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: question.author.profile_picture_path.not_nil!
               else
                 img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: ""
               end

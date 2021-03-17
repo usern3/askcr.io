@@ -61,7 +61,7 @@ class Admin::Questions::ShowPage < MainLayout
             end
             div class: "flex items-center" do
               if !question.author.profile_picture_path.nil?
-                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "/uploads/#{question.author.profile_picture_path.not_nil!}"
+                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: question.author.profile_picture_path.not_nil!
               else
                 img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: ""
               end
@@ -95,7 +95,7 @@ class Admin::Questions::ShowPage < MainLayout
             end
             div class: "flex items-center" do
               if !current_user.profile_picture_path.nil?
-                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "/uploads/#{current_user.profile_picture_path.not_nil!}"
+                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: current_user.profile_picture_path.not_nil!
               else
                 img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=40&q=80"
               end
@@ -162,7 +162,7 @@ class Admin::Questions::ShowPage < MainLayout
               end
               div class: "flex items-center" do
                 if !answer.author.profile_picture_path.nil?
-                  img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "/uploads/#{answer.author.profile_picture_path.not_nil!}"
+                  img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: answer.author.profile_picture_path.not_nil!
                 else
                   img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: ""
                 end
