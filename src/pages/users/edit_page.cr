@@ -1,4 +1,4 @@
-class Users::EditPage < AdminLayout
+class Users::EditPage < MainLayout
   include FormattingHelpers
   needs operation : EditUser
   quick_def page_title, "Editing @#{current_user.username}'s profile."
