@@ -1,6 +1,8 @@
-# Ask.cr
+# Askcr.io
 
 This is a project written using [Lucky](https://luckyframework.org) and is inspired by StackOverflow. This project was made to serve as a resource for the Crystal programming language where users can get help by asking questions and help others by sharing their knowledge and answering questions.
+
+Users will be able to ask, answer, mark solutions to their questions, earn achievements, tip each other via various crypto methods and more top secret feaures coming soon!
 
 The project is currently being re-written and the initial release is abouot 80% done for it's initial release!
 
@@ -20,6 +22,7 @@ Also, whichever coin raises the most before launch will have a nice advertisemen
 - [![Image of Yaktocat](https://img.shields.io/liberapay/goal/nolyoi.svg?logo=liberapay)](https://liberapay.com/nolyoi/)
 
 Top 3 donors will have a spor on our homepage with their name, quote, and/or link to anything they'd like. All other doners will be listed on our donors page!
+Also, the top 2 or 3 coins with the most donations will be integrated for tipping in the site!
 
 Thank you for reading! Oh and here's some preview screen caps below!
 
