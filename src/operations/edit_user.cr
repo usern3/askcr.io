@@ -25,8 +25,11 @@ class EditUser < User::SaveOperation
   private def upload_pic(pic)
     result = Shrine.upload(File.new(pic.tempfile.path), "store", metadata: {"filename" => pic.filename})
 
-    if old_picture_path = profile_picture_path.value
-      delete_old_profile_picture(old_picture_path)
+    if old_image = profile_picture_path.original_value
+      storage = Shrine.find_storage("store")
+      if storage.exists?(old_image)
+        storage.delete(old_image)
+      end
     end
 
     profile_picture_path.value = result.id
@@ -45,6 +48,7 @@ class EditUser < User::SaveOperation
         validate_size_of new_password, min: 7
         validate_confirmation_of new_password, with: new_password_confirmation
         Authentic.copy_and_encrypt new_password, to: encrypted_password
+        password_changes_success.value = true
       end
     end
   end
@@ -52,9 +56,7 @@ class EditUser < User::SaveOperation
   def validate_user_password
     if password.value
       user = UserQuery.find(id.value.not_nil!)
-      if Authentic.correct_password?(user, password.value.to_s)
-        password_changes_success.value = true
-      else
+      unless Authentic.correct_password?(user, password.value.to_s)
         password.add_error "was incorrect."
       end
     end
