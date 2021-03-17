@@ -28,7 +28,7 @@ class User < BaseModel
     has_many questions : Question, foreign_key: "author_id"
     has_many answers : Answer, foreign_key: "author_id"
     has_many infractions : Infraction
-    has many achievements : Achievement
+    has_many achievements : Achievement
   end
 
   avram_enum Role do

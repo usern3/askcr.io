@@ -5,6 +5,7 @@ class Infraction < BaseModel
     column title : String
     column description : String
     column severity : Infraction::Severity
+    column expires_on : Time?
     column soft_deleted_at : Time?
 
     belongs_to user : User
