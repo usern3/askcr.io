@@ -6,6 +6,7 @@ Users will be able to ask, answer, mark solutions to their questions, earn achie
 
 The project is currently being re-written and the initial release is abouot 80% done for it's initial release! You can play with the testing version and very buggy version of the app here for now: https://askcrio.herokuapp.com/
 
+## Helping out/donating
 If you'd like to help, please feel free to open up issues or contribute code. As of now I'm doing this all on my own. 
 
 If you would like to donate to the project and help pay the server and domain bills, you can donate the following ways. I have built this myself and will be paying for it out of my own pocket.
@@ -22,6 +23,7 @@ Also, whichever coin raises the most before launch will have a nice advertisemen
 - [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G83QD5W)
 - [![Image of Yaktocat](https://img.shields.io/liberapay/goal/nolyoi.svg?logo=liberapay)](https://liberapay.com/nolyoi/)
 
+### Prizes
 Top 3 donors will have a spor on our homepage with their name, quote, and/or link to anything they'd like. All other doners will be listed on our donors page!
 Also, the top 2 or 3 coins with the most donations will be integrated for tipping in the site!
 
