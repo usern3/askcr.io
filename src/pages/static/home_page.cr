@@ -14,7 +14,7 @@ class Static::HomePage < HomeLayout
     header class: "pattern bg-gray-900" do
       div class: "container mx-auto px-6" do
         div class: "w-full max-w-6xl mx-auto" do
-          nav class: "flex flex-col py-2 sm:flex-row sm:justify-between sm:items-center" do
+          nav class: "flex flex-col py-2 sm:flex-row sm:justify-between sm:items-center sm:self-center" do
             div do
               a "Ask.cr", class: "text-2xl font-semibold text-white hover:text-gray-300", href: "#"
             end
