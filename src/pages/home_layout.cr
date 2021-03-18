@@ -1,12 +1,13 @@
 abstract class HomeLayout
   include Lucky::HTMLPage
+
   needs current_user : User?
 
   abstract def content
   abstract def page_title
 
   def page_title
-    "Welcome to AskCryst.al!"
+    "Welcome to Askcr.io"
   end
 
   def render

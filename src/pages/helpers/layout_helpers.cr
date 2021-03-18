@@ -1,9 +1,9 @@
 module LayoutHeleprs
-  def render
+  def footer
     footer class: "flex flex-col justify-between items-center mt-16 px-6 py-2 bg-white dark:bg-gray-800 sm:flex-row" do
       div class: "container mx-auto" do
         a "Ask.cr", class: "text-xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300", href: "#"
-        para "All rights reserved", class: "py-2 text-gray-800 dark:text-white sm:py-0"
+        para "All rights reserved. This site is run by one persona and paid our of their own pockets, so plase consder donatong", class: "py-2 text-gray-800 dark:text-white sm:py-0"
         div class: "flex -mx-2" do
           a aria_label: "Linkden", class: "mx-2 text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-300", href: "#" do
             tag "svg", class: "h-4 w-4 fill-current", viewBox: "0 0 512 512" do

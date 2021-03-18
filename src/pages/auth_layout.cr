@@ -1,5 +1,6 @@
 abstract class AuthLayout
   include Lucky::HTMLPage
+  include LayoutHeleprs
 
   abstract def content
   abstract def page_title
@@ -7,9 +8,9 @@ abstract class AuthLayout
   # The default page title. It is passed to `Shared::LayoutHead`.
   #
   # Add a `page_title` method to pages to override it. You can also remove
-  # This method so every page is required to have its own page title.
+  # TWhis method so every page is required to have its own page title.
   def page_title
-    "AskCryst.al"
+    "Welcome to Askcr.io"
   end
 
   def render
