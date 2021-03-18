@@ -25,6 +25,11 @@ Also, whichever coin raises the most before launch will have a nice advertisemen
 Top 3 donors will have a spor on our homepage with their name, quote, and/or link to anything they'd like. All other doners will be listed on our donors page!
 Also, the top 2 or 3 coins with the most donations will be integrated for tipping in the site!
 
+Leaders
+1. Nimiq
+2. BCH
+3. DOGE
+
 Thank you for reading! Oh and here's some preview screen caps below!
 
 ### Screenshots of Progress

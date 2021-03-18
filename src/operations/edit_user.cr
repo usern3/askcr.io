@@ -67,10 +67,10 @@ class EditUser < User::SaveOperation
     attributes.select(&.changed?).each do |attribute|
       Log.dexter.info do
         {
-          user_id: user.id,
+          user_id:           user.id,
           changed_attribute: attribute.name.to_s,
-          from: attribute.original_value.to_s,
-          to: attribute.value.to_s
+          from:              attribute.original_value.to_s,
+          to:                attribute.value.to_s,
         }
       end
     end
