@@ -27,7 +27,7 @@ class ChangeUserRole < LuckyCli::Task
     end
 
     if disable?
-      previous_role = useer.role
+      previous_role = user.role
       if user.role.value > 0
         SaveUser.update!(user, role: User::Role.new(:member))
         puts "User #{email} is no longer an admin.".colorize(:green)
