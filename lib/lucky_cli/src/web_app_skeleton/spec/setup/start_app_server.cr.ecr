@@ -1,0 +1,12 @@
+app_server = AppServer.new
+
+spawn do
+  app_server.listen
+end
+
+Spec.after_suite do
+  <%- if browser? -%>
+  LuckyFlow.shutdown
+  <%- end -%>
+  app_server.close
+end

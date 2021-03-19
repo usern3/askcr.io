@@ -1,0 +1,30 @@
+class <%= migration_class_name %> < Avram::Migrator::Migration::V1
+  def migrate
+    <%- if formatted_migrate_contents -%>
+    <%= formatted_migrate_contents %>
+    <%- else -%>
+    # Read more on migrations
+    # https://www.luckyframework.org/guides/database/migrations
+    #
+    # create table_for(Thing) do
+    #   primary_key id : Int64
+    #   add_timestamps
+    #
+    #   add title : String
+    #   add description : String?
+    # end
+
+    # Run custom SQL with execute
+    #
+    # execute "CREATE UNIQUE INDEX things_title_index ON things (title);"
+    <%- end -%>
+  end
+
+  def rollback
+    <%- if formatted_rollback_contents -%>
+    <%= formatted_rollback_contents %>
+    <%- else -%>
+    # drop table_for(Thing)
+    <%- end -%>
+  end
+end
