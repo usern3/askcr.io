@@ -1,17 +1,45 @@
-/docs/
-/lib/
-/bin/
-/.shards/
-*.dwarf
-start_server
-*.dwarf
-*.local.cr
-.env
-/public/js
-/public/css
-/public/mix-manifest.json
-/node_modules
-yarn-error.log
-/public/uploads/*
-donators.txt
-/logs/test.log
+About Askcr
+I'm currently building a Q/A platform for the Crystal language which is pretty new and unknown. Hoping to spread it and be a good resource to ask and find answers to questions. Right now, all of the costs will be out of my pocket.
+
+Also, the code is open-source. Written in Crystal which is also open-source, and with the Lucky Framework (you guessed it, also open-sourcE), both of which I'm trying to help grow.
+
+I think a dedicated Q/A like StackOverflow would be a good place to start. Except this Q/A is focused specficially on the Crystal ecosystem (Crystal, shards, frameworks, guis, etc.)
+
+Users will be able to ask, answer, mark solutions to their questions, earn achievements, tip each other via various crypto methods and more top secret features coming soon! I do have a decent amount of interest in this project so including LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr as a tipping option could help benefit us both!
+
+The project is currently being re-written and the initial release is about 80% done for it's initial release! You can play with the testing version and very buggy version of the app here for now: https://askcrio.herokuapp.com/
+
+If you'd like to help, please feel free to open up issues or contribute code. As of now I'm doing this all on my own.
+
+So, I was wondering if the crypto community could help out.
+for oversince launch because they have such an amazing team and their Proof of Stake seems very fair,
+
+Launch should be in the next 1-2 weeks! You can plat with a very buggy test version here before launch: http://askcr.io (the info posted during alpha may or may not be reset before official launch
+
+For more info you can visit the Github repo (https://github.com/nolyoi/ask.cr), here's addresses to some popular coins.
+
+LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr (send to user: nolyoi, include link you'd like displayed on our site and/or a sentence or two about yourselves)
+
+BTC (bc1qkjd9vdvmgmzwma786guc8u04rztnuat3alm3ks)
+BCH (bitcoincash:qpgr0cynas2drss4l6rqjp3zeccjc75cks6vl8yux9)
+NANO (nano_3thngiwouzqozu9amgzzqe9rmi9riak9g8hnty9bihiudj85x4ckqxrykdua)
+BANANO (ban_3ahiezbktgsacnfdsthpx97guikhyt7fzx94uyrkz15tzrqs1qenrkna9tfr)
+NIM(NQ66-49HX-M9EQ-VDV2-SQQK-KXBN-TXSJ-T8L0-A7GY)
+OXEN (LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr)
+***More donations can be found on our https://github.com/nolyoi/ask.cr here: ***https://github.com/nolyoi/ask.cr
+
+Leaderboard
+NIM currently holds the lead,
+BCH is in 2nd place with $27.
+Where's LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr!? No LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr donations just yet.
+
+Sad to see no Oxen donors as it is legitimately 100% my favorite project on the market now. 😌
+
+Extra Information
+Anyone who donates $10 or more will be listed in our GitHub README under Donors and on our website under the "Donors" page.
+
+Top 3 individual donors overall will have a spot on our homepage with a name, paragraph, and link to any site they'd like. Other donors will be featured on a "Donors" page.
+
+Top 3 currencies with total donations will have a tipping platform integrated! I would love for it to be LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr, NIM and LOKI as they're both near instant transactions and deserve more recognition. Plus the privacy of OXEN.
+
+Well, I hope some people feel generous! What can LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr do to help support the open-source community?
