@@ -14,3 +14,4 @@ start_server
 yarn-error.log
 /public/uploads/*
 donators.txt
+/logs/log.txt

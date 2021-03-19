@@ -15,18 +15,19 @@ class ChangeUserRole < LuckyCli::Task
 
     case role.downcase
     when "member"
-      new_role = User::Role.new(:member)
+      SaveUser.update!(user, role: User::Role.new(:member))
     when "moderator"
-      new_role = User::Role.new(:moderator)
+      SaveUser.update!(user, role: User::Role.new(:moderator))
     when "admin"
-      new_role = User::Role.new(:admin)
+      SaveUser.update!(user, role: User::Role.new(:admin))
     when "superadmin"
-      new_role = User::Role.new(:superadmin)
+      SaveUser.update!(user, role: User::Role.new(:superadmin))
     else
       raise "invalid role entered."
     end
 
     if disable?
+      previous_role = useer.role
       if user.role.value > 0
         SaveUser.update!(user, role: User::Role.new(:member))
         puts "User #{email} is no longer an admin.".colorize(:green)
