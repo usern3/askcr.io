@@ -20,6 +20,8 @@ Also, whichever coin raises the most before launch will have a nice advertisemen
 - XMR (47M2D2xz6ygPxhSJHRgYw73mAVPJRsU1AF89i2fZZRtee1z4YnaYwHABoohfhPjq1mS81h24SxSvsBeWvRPZJgZREPh2qTE )
 - OXEN (LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr)
 - NIM (NQ66-49HX-M9EQ-VDV2-SQQK-KXBN-TXSJ-T8L0-A7GY)
+- NANO (nano_3thngiwouzqozu9amgzzqe9rmi9riak9g8hnty9bihiudj85x4ckqxrykdua)
+- BANANO (ban_3ahiezbktgsacnfdsthpx97guikhyt7fzx94uyrkz15tzrqs1qenrkna9tfr)
 - [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G83QD5W)
 - [![Image of Yaktocat](https://img.shields.io/liberapay/goal/nolyoi.svg?logo=liberapay)](https://liberapay.com/nolyoi/)
 
