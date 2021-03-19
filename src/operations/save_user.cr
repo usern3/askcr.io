@@ -5,6 +5,8 @@ class SaveUser < User::SaveOperation
   attribute password_confirmation : String
   file_attribute :profile_picture
 
+  after_save log_changes
+
   before_save do
     validate_uniqueness_of email
     validate_uniqueness_of username
@@ -28,5 +30,19 @@ class SaveUser < User::SaveOperation
 
   private def delete_old_profile_picture(image_path : String)
     Shrine::UploadedFile.new(id: image_path, storage_key: "store").delete
+  end
+
+  def log_changes(user : User)
+    # Get changed attributes and log each of them
+    attributes.select(&.changed?).each do |attribute|
+      Log.dexter.info do
+        {
+          user_id: user.id,
+          changed_attribute: attribute.name.to_s,
+          from: attribute.original_value.to_s,
+          to: attribute.value.to_s
+        }
+      end
+    end
   end
 end

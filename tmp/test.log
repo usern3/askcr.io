@@ -1,0 +1,10 @@
+
+GET [4m/admin/answers[0m
+ [2m▸[0m Handled by [1mAdmin::Answers::Index[0m
+ [2m▸[0m Rendered [1mAdmin::Answers::IndexPage[0m
+ [2m▸[0m Sent [1m200 OK[0m (10.11ms)
+
+GET [4m/admin[0m
+ [2m▸[0m Handled by [1mAdmin::Index[0m
+ [2m▸[0m Rendered [1mAdmin::IndexPage[0m
+ [2m▸[0m Sent [1m200 OK[0m (27.99ms)

@@ -14,7 +14,7 @@ class Admin::IndexPage < AdminLayout
         div class: "grid gap-4 grid-cols-6" do
           div class: "col-span-1 mt-2" do
             h1 "Stats", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"
-            small "AskCryst.al. quick stats."
+            small "Sskcr.io quick stats."
           end
           div class: "col-span-5 mt-2" do
             h1 "Latest Questions", class: "text-2xl text-gray-800 font-bold align-baseline mt-2"

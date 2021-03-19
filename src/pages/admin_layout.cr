@@ -20,7 +20,7 @@ abstract class AdminLayout
   #
   # This will force pages to define their own 'page_title' method.
   def page_title
-    "AskCryst.al"
+    "Askcr.io"
   end
 
   def render

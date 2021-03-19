@@ -61,8 +61,10 @@ class Admin::Users::IndexPage < AdminLayout
               span user.username, class: "text-gray-800"
             end
             div class: "col-span-1 mb-2 self-center" do
-              if user.role.admin? || user.role.superadmin?
-                span "Admin", class: "text-indigo-600"
+              if user.role.superadmin?
+                span "Superadmin", class: "text-indigo-600"
+              elsif user.role.admin?
+                span "Admin", class: "text-red-500"
               elsif user.role.moderator?
                 span "Moderator", class: "text-green-600"
               elsif user.role.member?
