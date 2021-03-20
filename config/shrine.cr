@@ -1,11 +1,11 @@
 Shrine.configure do |config|
   if Lucky::Env.test?
-    config.storages[ShrineStorage::INVENTORY_IMAGE] = Shrine::Storage::Memory.new
+    config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::Memory.new
   elsif Lucky::Env.development?
-    config.storages[ShrineStorage::INVENTORY_IMAGE] = Shrine::Storage::FileSystem.new("tmp", prefix: "assets/images/inventory_items")
+    config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::FileSystem.new("tmp", prefix: "assets/images/inventory_items")
   else
     client = Awscr::S3::Client.new("eu-central-1", "H1FKEMXZRBAVX6SITLV3", "V1Lh8fB5vc4WNe7848kSACLlzjpKQHpdReOoXShG", endpoint: "linodeobjects.com")
-    config.storages[ShrineStorage::INVENTORY_IMAGE] = Shrine::Storage::S3.new(bucket: askcr, client: client, prefix: "assets/uploads", public: false)
+    config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::S3.new(bucket: askcr, client: client, prefix: "assets/uploads", public: false)
   end
 end
 
