@@ -1,5 +1,6 @@
 class Dashboard::ShowPage < MainLayout
   include FormattingHelpers
+  include LayoutHeleprs
   needs latest_questions : QuestionQuery
   needs popular_tags : TagQuery
   needs my_questions : QuestionQuery

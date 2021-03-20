@@ -1,0 +1,8 @@
+
+GET [4m/dashboard[0m
+ [2m▸[0m Handled by [1mDashboard::Show[0m
+ [2m▸[0m Rendered [1mDashboard::ShowPage[0m
+ [2m▸[0m Sent [1m200 OK[0m (14.61ms)
+
+GET [4m/uploads/5ce3041dac88836d1a9d8a7e6a10bf48.jpg[0m
+ [2m▸[0m Sent [1m200 OK[0m (1.72ms)
