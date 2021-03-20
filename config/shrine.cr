@@ -2,10 +2,10 @@ Shrine.configure do |config|
   if Lucky::Env.test?
     config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::Memory.new
   elsif Lucky::Env.development?
-    config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::FileSystem.new("tmp", prefix: "assets/images/inventory_items")
+    config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::FileSystem.new("tmp", prefix: "assets/uploads")
   else
-    client = Awscr::S3::Client.new("eu-central-1", "H1FKEMXZRBAVX6SITLV3", "V1Lh8fB5vc4WNe7848kSACLlzjpKQHpdReOoXShG", endpoint: "linodeobjects.com")
-    config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::S3.new(bucket: askcr, client: client, prefix: "assets/uploads", public: false)
+    client = Awscr::S3::Client.new(ENV['BUCKETEER_AWS_REGION'], ENV['BUCKETEER_AWS_ACCESS_KEY_ID'], ENV['BUCKETEER_AWS_SECRET_ACCESS_KEY'])
+    config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::S3.new(bucket: ENV['BUCKETEER_BUCKET_NAME'] , client: client, prefix: "public/upload", public: false)
   end
 end
 
@@ -23,7 +23,16 @@ class Shrine
         if ep = client.@endpoint
           endpoint = ep.gsub("https://", "")
         end
-        url = Awscr::S3::Client.new("eu-central-1", "H1FKEMXZRBAVX6SITLV3", "V1Lh8fB5vc4WNe7848kSACLlzjpKQHpdReOoXShG", endpoint: "linodeobjects.com")
+        presigned_options = Awscr::S3::Presigned::Url::Options.new(
+          aws_access_key: ENV['BUCKETEER_AWS_ACCESS_KEY_ID'],
+          aws_secret_key: ENV['BUCKETEER_AWS_ACCESS_SECRET_KEY'],
+          region: ENV['BUCKETEER_AWS_REGION'] 
+          object: "/#{object_key(id)}",
+          bucket: ENV['BUCKETEER_BUCKET_NAME'],
+          host_name: endpoint
+        )
+
+        url = Awscr::S3::Presigned::Url.new(presigned_options)
         url.for(:get)
       end
     end
