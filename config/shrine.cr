@@ -24,9 +24,9 @@ class Shrine
           endpoint = ep.gsub("https://", "")
         end
         presigned_options = Awscr::S3::Presigned::Url::Options.new(
-          aws_access_key: ENV["BUCKETEER_AWS_ACCESS_KEY_ID"],
-          aws_secret_key: ENV["BUCKETEER_AWS_ACCESS_SECRET_KEY"],
-          region: ENV["BUCKETEER_AWS_REGION"] 
+          aws_access_key: client.@aws_access_key,
+          aws_secret_key: client.@aws_secret_key,
+          region: client.@region,
           object: "/#{object_key(id)}",
           bucket: bucket,
           host_name: endpoint
