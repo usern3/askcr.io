@@ -4,8 +4,8 @@ Shrine.configure do |config|
   elsif Lucky::Env.development?
     config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::FileSystem.new("tmp", prefix: "assets/uploads")
   else
-    client = Awscr::S3::Client.new(ENV['BUCKETEER_AWS_REGION'], ENV['BUCKETEER_AWS_ACCESS_KEY_ID'], ENV['BUCKETEER_AWS_SECRET_ACCESS_KEY'])
-    config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::S3.new(bucket: ENV['BUCKETEER_BUCKET_NAME'] , client: client, prefix: "public/upload", public: false)
+    client = Awscr::S3::Client.new(ENV["BUCKETEER_AWS_REGION"], ENV["BUCKETEER_AWS_ACCESS_KEY_ID"], ENV["BUCKETEER_AWS_SECRET_ACCESS_KEY"], endpoint: "https://bucketeer-7b46713e-bb3a-4b4f-a6f3-36fbd08c6baa.s3.amazonaws.com/public/")
+    config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::S3.new(bucket: ENV["BUCKETEER_BUCKET_NAME"] , client: client, prefix: "public/upload", public: false)
   end
 end
 
@@ -24,11 +24,11 @@ class Shrine
           endpoint = ep.gsub("https://", "")
         end
         presigned_options = Awscr::S3::Presigned::Url::Options.new(
-          aws_access_key: ENV['BUCKETEER_AWS_ACCESS_KEY_ID'],
-          aws_secret_key: ENV['BUCKETEER_AWS_ACCESS_SECRET_KEY'],
-          region: ENV['BUCKETEER_AWS_REGION'] 
+          aws_access_key: ENV["BUCKETEER_AWS_ACCESS_KEY_ID"],
+          aws_secret_key: ENV["BUCKETEER_AWS_ACCESS_SECRET_KEY"],
+          region: ENV["BUCKETEER_AWS_REGION"] 
           object: "/#{object_key(id)}",
-          bucket: ENV['BUCKETEER_BUCKET_NAME'],
+          bucket: bucket,
           host_name: endpoint
         )
 
