@@ -1,7 +1,6 @@
 abstract class AuthLayout
   include Lucky::HTMLPage
   include LayoutHeleprs
-  
 
   abstract def content
   abstract def page_title
