@@ -27,7 +27,7 @@ class Shrine
           aws_access_key: client.@aws_access_key,
           aws_secret_key: client.@aws_secret_key,
           region: client.@region,
-          object: "/#{object_key(id)}",
+          object: UUID.new.variant.to_s,
           bucket: bucket,
           host_name: endpoint
         )
