@@ -29,7 +29,7 @@ class ChangeUserRole < LuckyCli::Task
     if disable?
       previous_role = user.role
       if user.role.value > 0
-        EditUser.update!(user, role: User::Role.new(:member))
+        CLI::EditUser.update!(user, role: User::Role.new(:member))
         puts "User #{email} is no longer an admin.".colorize(:green)
       else
         puts "User #{email} is not an admin.".colorize(:red)
@@ -38,7 +38,7 @@ class ChangeUserRole < LuckyCli::Task
       if user.role == new_role
         puts "User #{email} is already a(n) #{role.downcase}.".colorize(:red)
       else
-        EditUser.update!(user, role: new_role)
+        CLI::EditUser.update!(user, role: new_role)
         puts "User #{email} is now a(n) #{role.downcase}.".colorize(:green)
       end
     end
