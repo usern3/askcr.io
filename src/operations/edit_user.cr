@@ -34,7 +34,6 @@ class EditUser < User::SaveOperation
         end
       end
     end
-
     profile_picture_path.value = result.id
   end
 
