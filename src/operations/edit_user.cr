@@ -39,7 +39,7 @@ class EditUser < User::SaveOperation
   end
 
   private def delete_old_profile_picture(image_path : String)
-    Shrine::UploadedFile.new(id: image_path, storage_key: "store").delete
+    Shrine::UploadedFile.new(id: image_path, storage_key: ShrineStorage::UPLOADS).delete
   end
 
   private def update_password_validations
