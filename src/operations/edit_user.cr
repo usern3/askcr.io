@@ -23,12 +23,15 @@ class EditUser < User::SaveOperation
   end
 
   private def upload_pic(pic)
-    result = Shrine.upload(File.new(pic.tempfile.path), "store", metadata: {"filename" => pic.filename})
-
+    result = Shrine.upload(File.new(image_to_upload.tempfile.path), ShrineStorage::UPLOADS, metadata: {"filename" => image_to_upload.filename})
     if old_image = profile_picture_path.original_value
-      storage = Shrine.find_storage("store")
-      if storage.exists?(old_image)
-        storage.delete(old_image)
+      storage = Shrine.find_storage(ShrineStorage::UPLOADS)
+      if image_exists(storage, old_image)
+        begin
+          storage.delete(old_image)
+        rescue err
+          Log.error { "Unable to delete image '#{image}'. #{err.inspect_with_backtrace}" }
+        end
       end
     end
 
@@ -74,5 +77,12 @@ class EditUser < User::SaveOperation
         }
       end
     end
+  end
+
+  def image_exists(storage, image) : Bool
+    storage.exists?(image)
+  rescue err
+    Log.error { "Unable to inspect image '#{image}'. #{err.inspect_with_backtrace}" }
+    true
   end
 end
