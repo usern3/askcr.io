@@ -30,7 +30,7 @@ class EditUser < User::SaveOperation
         begin
           storage.delete(old_image)
         rescue err
-          Log.error { "Unable to delete image '#{image}'. #{err.inspect_with_backtrace}" }
+          Log.error { "Unable to delete image. #{err.inspect_with_backtrace}" }
         end
       end
     end
