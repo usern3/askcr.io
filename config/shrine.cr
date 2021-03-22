@@ -19,15 +19,11 @@ class Shrine
   module Storage
     class S3 < Storage::Base
       def url(id : String, **options) : String
-        endpoint : String?
-        if ep = client.@endpoint
-          endpoint = ep.gsub("https://", "")
-        end
         presigned_options = Awscr::S3::Presigned::Url::Options.new(
           aws_access_key: client.@aws_access_key,
           aws_secret_key: client.@aws_secret_key,
           region: client.@region,
-          object: client.@object,
+          object: object_key(id),
           bucket: bucket,
           host_name: endpoint
         )
