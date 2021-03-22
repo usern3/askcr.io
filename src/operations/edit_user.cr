@@ -23,7 +23,7 @@ class EditUser < User::SaveOperation
   end
 
   private def upload_pic(pic)
-    result = Shrine.upload(File.new(image_to_upload.tempfile.path), ShrineStorage::UPLOADS, metadata: {"filename" => image_to_upload.filename})
+    result = Shrine.upload(File.new(pic.tempfile.path), ShrineStorage::UPLOADS, metadata: {"filename" => pic.filename})
     if old_image = profile_picture_path.original_value
       storage = Shrine.find_storage(ShrineStorage::UPLOADS)
       if image_exists(storage, old_image)
