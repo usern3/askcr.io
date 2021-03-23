@@ -67,10 +67,10 @@ class Questions::ShowPage < MainLayout
               end
             end
             div class: "flex items-center" do
-              if !question.author.profile_picture_path.nil?
-                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "/uploads/#{question.author.profile_picture_path.not_nil!}"
+              if image_path = user_profile_image_link(question.author)
+                img alt: question.author.username, class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: image_path
               else
-                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: ""
+                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g"
               end
               a question.author.username, class: "text-gray-700 dark:text-gray-200 font-bold cursor-pointer"
             end
@@ -101,10 +101,10 @@ class Questions::ShowPage < MainLayout
               small ""
             end
             div class: "flex items-center" do
-              if !current_user.profile_picture_path.nil?
-                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "/uploads/#{current_user.profile_picture_path.not_nil!}"
+              if image_path = user_profile_image_link(current_user)
+                img alt: current_user.username, class: "h-8 w-8 rounded-full", src: image_path
               else
-                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=40&q=80"
+                img alt: "avatar", class: "h-full w-full object-cover", src: "https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g"
               end
               a current_user.username, class: "text-gray-700 dark:text-gray-200 font-bold cursor-pointer"
             end
