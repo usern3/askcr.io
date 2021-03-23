@@ -1,5 +1,6 @@
 class Users::EditPage < MainLayout
   include FormattingHelpers
+  include TextHelpers
   needs operation : EditUser
   quick_def page_title, "Editing @#{current_user.username}'s profile."
 
@@ -70,15 +71,12 @@ class Users::EditPage < MainLayout
                 end
                 div do
                   div class: "h-20 w-20 mb-4" do
-                    if !current_user.profile_picture_path.nil?
-                      pp! current_user.profile_picture_path
-                      img alt: "avatar", class: "h-full w-full object-cover", src: "/public/uploads/#{current_user.profile_picture_path.not_nil!}"
-                      img alt: "avatar", class: "h-full w-full object-cover", src: "/public/#{current_user.profile_picture_path.not_nil!}"
-                      img alt: "avatar", class: "h-full w-full object-cover", src: "/uploads/#{current_user.profile_picture_path.not_nil!}"
-                      img alt: "avatar", class: "h-full w-full object-cover", src: "/uploads/public/#{current_user.profile_picture_path.not_nil!}"
-                      img alt: "avatar", class: "h-full w-full object-cover", src: "/#{current_user.profile_picture_path.not_nil!}"
+                    if image_path = inventory_item_image_link(current_user)
+                      img alt: current_user.username, class: "h-12 w-12 rounded-full", src: image_path
                     else
-                      img alt: "avatar", class: "h-full w-full object-cover", src: "https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g"
+                      div do
+                        text "NA"
+                      end
                     end
                   end
                   mount Shared::Field, op.profile_picture, label_text: "Avatar", &.file_input(append_class: "mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring")
