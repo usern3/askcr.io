@@ -2,11 +2,11 @@ Shrine.configure do |config|
   if Lucky::Env.test?
     config.storages[ShrineStorage::UPLOADS] = Shrine::Storage::Memory.new
   elsif Lucky::Env.development?
-    client = Awscr::S3::Client.new(ENV["BUCKETEER_AWS_REGION"], ENV["BUCKETEER_AWS_ACCESS_KEY_ID"], ENV["BUCKETEER_AWS_SECRET_ACCESS_KEY"], endpoint: "https://bucketeer-7b46713e-bb3a-4b4f-a6f3-36fbd08c6baa.s3.amazonaws.com")
+    client = Awscr::S3::Client.new(ENV["BUCKETEER_AWS_REGION"], ENV["BUCKETEER_AWS_ACCESS_KEY_ID"], ENV["BUCKETEER_AWS_SECRET_ACCESS_KEY"])
     storage = Shrine::Storage::S3.new(bucket: ENV["BUCKETEER_BUCKET_NAME"], client: client, prefix: "assets/uploads", public: true)
     config.storages[ShrineStorage::UPLOADS] = storage
   else
-    client = Awscr::S3::Client.new(ENV["BUCKETEER_AWS_REGION"], ENV["BUCKETEER_AWS_ACCESS_KEY_ID"], ENV["BUCKETEER_AWS_SECRET_ACCESS_KEY"], endpoint: "https://bucketeer-7b46713e-bb3a-4b4f-a6f3-36fbd08c6baa.s3.amazonaws.com")
+    client = Awscr::S3::Client.new(ENV["BUCKETEER_AWS_REGION"], ENV["BUCKETEER_AWS_ACCESS_KEY_ID"], ENV["BUCKETEER_AWS_SECRET_ACCESS_KEY"])
     storage = Shrine::Storage::S3.new(bucket: ENV["BUCKETEER_BUCKET_NAME"], client: client, prefix: "assets/uploads", public: true)
     config.storages[ShrineStorage::UPLOADS] = storage
   end
