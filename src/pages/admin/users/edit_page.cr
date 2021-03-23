@@ -1,5 +1,6 @@
 class Admin::Users::EditPage < AdminLayout
   include FormattingHelpers
+  include TextHelpers
   needs operation : Admin::EditUser
   needs user : User
   quick_def page_title, "Editing @#{user.username}'s profile."
@@ -101,8 +102,8 @@ class Admin::Users::EditPage < AdminLayout
                 end
                 div do
                   div class: "h-20 w-20 mb-4" do
-                    if !user.profile_picture_path.nil?
-                      img alt: "avatar", class: "h-full w-full object-cover", src: "/uploads/#{user.profile_picture_path.not_nil!}"
+                    if image_path = user_profile_image_link(user)
+                      img alt: user.username, class: "h-12 w-12 rounded-full", src: image_path
                     else
                       img alt: "avatar", class: "h-full w-full object-cover", src: "https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g"
                     end
