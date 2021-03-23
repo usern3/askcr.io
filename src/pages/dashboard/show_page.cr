@@ -44,9 +44,9 @@ class Dashboard::ShowPage < MainLayout
             link "Read more", to: Questions::Show.with(question.id), class: "text-blue-600 dark:text-blue-400 hover:underline"
             div class: "flex items-center" do
               if image_path = user_profile_image_link(current_user)
-                img alt: current_user.username, class: "h-full w-full object-cover", src: image_path
+                img alt: current_user.username, class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: image_path
               else
-                img alt: "avatar", class: "h-full w-full object-cover", src: "https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g"
+                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g"
               end
               a current_user.username, class: "text-gray-700 dark:text-gray-200 font-bold cursor-pointer"
             end
