@@ -1,5 +1,6 @@
 class Tags::IndexPage < MainLayout
   include FormattingHelpers
+  include TextHelpers
   needs tags : TagQuery
   needs questions : QuestionQuery
   needs pages : Lucky::Paginator

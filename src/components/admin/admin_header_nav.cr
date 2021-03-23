@@ -1,5 +1,5 @@
 class Admin::Shared::HeaderNav < BaseComponent
-  include TextHelpers
+  include ::TextHelpers
   needs current_user : User
 
   def render_links
