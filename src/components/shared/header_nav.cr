@@ -1,4 +1,5 @@
 class Shared::HeaderNav < BaseComponent
+  include TextHelpers
   needs current_user : User
 
   def render_links
@@ -37,8 +38,8 @@ class Shared::HeaderNav < BaseComponent
               end
               button aria_label: "toggle profile dropdown", class: "dropdown inline-block text-left relative flex items-center focus:outline-none", type: "button" do
                 div class: "h-8 w-8 overflow-hidden rounded-full border-2 border-gray-400", id: "options-menu", aria_haspopup: "true", aria_expanded: "false" do
-                  if !current_user.profile_picture_path.nil?
-                    img alt: "avatar", class: "h-full w-full object-cover", src: "/uploads/#{current_user.profile_picture_path.not_nil!}"
+                  if image_path = user_profile_image_link(current_user)
+                    img alt: current_user.username, class: "h-12 w-12 rounded-full", src: image_path
                   else
                     img alt: "avatar", class: "h-full w-full object-cover", src: "https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g"
                   end

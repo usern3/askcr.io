@@ -1,5 +1,6 @@
 class Questions::IndexPage < MainLayout
   include FormattingHelpers
+  include TextHelpers
   needs questions : QuestionQuery
   needs pages : Lucky::Paginator
   quick_def page_title, "All Questions"
@@ -44,10 +45,10 @@ class Questions::IndexPage < MainLayout
           div class: "flex justify-between items-center mt-4" do
             link pluralize_reply(question.answers.size), to: Questions::Show.with(question.id), class: "text-blue-600 dark:text-blue-400 hover:underline"
             div class: "flex items-center" do
-              if !question.author.profile_picture_path.nil?
-                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: "/uploads/#{question.author.profile_picture_path.not_nil!}"
+              if image_path = user_profile_image_link(question.author)
+                img alt: question.author.username, class: "h-12 w-12 rounded-full", src: image_path
               else
-                img alt: "avatar", class: "mx-4 w-10 h-10 object-cover rounded-full hidden sm:block", src: ""
+                img alt: "avatar", class: "h-full w-full object-cover", src: "https://lh3.googleusercontent.com/a-/AOh14Gi0DgItGDTATTFV6lPiVrqtja6RZ_qrY91zg42o-g"
               end
               a question.author.username, class: "text-gray-700 dark:text-gray-200 font-bold cursor-pointer"
             end
