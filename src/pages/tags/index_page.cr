@@ -1,4 +1,4 @@
-class Tags::IndexPage < MainLayout
+class Tags::IndexPage < HomeLayout
   include FormattingHelpers
   include TextHelpers
   needs tags : TagQuery
