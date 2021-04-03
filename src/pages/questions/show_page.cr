@@ -1,4 +1,4 @@
-class Questions::ShowPage < HomeLayout
+class Questions::ShowPage < MainLayout
   include TextHelpers
   needs question : Question
   needs answers : AnswerQuery
