@@ -3,7 +3,7 @@
   "description": "a really cool crystal app",
   "version": "1.0.0",
   "engines": {
-    "node": "15.6.0"
+    "node": "12.21.0"
   },
   "license": "UNLICENSED",
   "private": true,
