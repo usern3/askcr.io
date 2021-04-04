@@ -1,0 +1,42 @@
+name: Lucky Carbon CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: "*"
+
+jobs:
+  check_format:
+    runs-on: ubuntu-latest
+    container:
+      image: crystallang/crystal:0.36.1
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install shards
+        run: shards install
+      - name: Format
+        run: crystal tool format --check
+      - name: Lint
+        run: ./bin/ameba
+  specs:
+    runs-on: ubuntu-latest
+    container:
+      image: crystallang/crystal:0.36.1
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install shards
+        run: shards install
+      - name: Cache Crystal
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/crystal
+          key: ${{ runner.os }}-crystal
+      - name: Create .env file
+        run: touch .env
+      - if: env.RUN_INTEGRATION_SPECS == true
+        name: Run tests with integration
+        run: crystal spec
+      - if: env.RUN_INTEGRATION_SPECS != true
+        name: Run tests without integration
+        run: crystal spec -D skip-integration

@@ -1,0 +1,20 @@
+name: webdrivers
+version: 0.3.2
+description: |
+  Helps manage drivers for Selenium, such as the Chromedriver.
+authors:
+  - Matthew McGarvey <matthewmcgarvey14@gmail.com>
+crystal: 0.35.0
+license: MIT
+
+dependencies:
+  habitat:
+    github: luckyframework/habitat
+    version: ~> 0.4.3
+  crystar:
+    github: naqvis/crystar
+    version: ~> 0.1.9
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.13.2

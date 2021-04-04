@@ -1,0 +1,36 @@
+<%- if api_only? -%>
+class Home::Index < ApiAction
+  <%- if generate_auth? -%>
+  include Api::Auth::SkipRequireAuthToken
+
+  <%- end -%>
+  get "/" do
+    json({hello: "Hello World from Home::Index"})
+  end
+end
+<%- else -%>
+class Home::Index < BrowserAction
+  <%- if generate_auth? -%>
+  include Auth::AllowGuests
+
+  get "/" do
+    if current_user?
+      redirect Me::Show
+    else
+      # When you're ready change this line to:
+      #
+      #   redirect SignIns::New
+      #
+      # Or maybe show signed out users a marketing page:
+      #
+      #   html Marketing::IndexPage
+      html Lucky::WelcomePage
+    end
+  end
+  <%- else -%>
+  get "/" do
+    html Lucky::WelcomePage
+  end
+  <%- end -%>
+end
+<%- end -%>

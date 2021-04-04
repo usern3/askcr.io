@@ -1,0 +1,30 @@
+abstract class AuthLayout
+  include Lucky::HTMLPage
+  include LayoutHeleprs
+
+  abstract def content
+  abstract def page_title
+
+  # The default page title. It is passed to `Shared::LayoutHead`.
+  #
+  # Add a `page_title` method to pages to override it. You can also remove
+  # TWhis method so every page is required to have its own page title.
+  def page_title
+    "Welcome to Askcr.io"
+  end
+
+  def render
+    html_doctype
+
+    html lang: "en" do
+      mount Shared::LayoutHead, page_title: page_title, context: context
+      body class: "min-h-screen" do
+        mount Shared::AuthHeaderNav
+        div class: "container mx-auto" do
+          content
+        end
+        mount Shared::FlashMessages, context.flash
+      end
+    end
+  end
+end
