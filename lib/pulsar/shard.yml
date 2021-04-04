@@ -1,9 +1,0 @@
-name: pulsar
-version: 0.2.1
-
-authors:
-  - Paul Smith <@paulcsmith>
-
-crystal: 0.35.1
-
-license: MIT

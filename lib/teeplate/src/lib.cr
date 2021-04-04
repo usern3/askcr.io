@@ -1,7 +1,0 @@
-require "base64"
-require "colorize"
-require "ecr/macros"
-require "process"
-require "./version"
-require "./lib/as_data_entry"
-require "./lib/*"
