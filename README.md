@@ -6,32 +6,6 @@ Users will be able to ask, answer, mark solutions to their questions, earn achie
 
 The project is currently being re-written and the initial release is abouot 80% done for it's initial release! You can play with the testing version and very buggy version of the app here for now: https://askcrio.herokuapp.com/
 
-## Helping out/donating
-If you'd like to help, please feel free to open up issues or contribute code. As of now I'm doing this all on my own. 
-
-If you would like to donate to the project and help pay the server and domain bills, you can donate the following ways. I have built this myself and will be paying for it out of my own pocket.
-
-Also, whichever coin raises the most before launch will have a nice advertisement featured across the site forever! We chose these project because rhey are strong and projects that we feel have a good chance at future success.
-- BTC (bc1qkjd9vdvmgmzwma786guc8u04rztnuat3alm3ks)
-- ALGO (2O7YZ3D7Z26XVGHBHOIXVOBMFZR2BORYJNS4K4MRH72CC323RQSOADG32A)
-- BCH (bitcoincash:qpgr0cynas2drss4l6rqjp3zeccjc75cks6vl8yux9)
-- NIM (NQ66-49HX-M9EQ-VDV2-SQQK-KXBN-TXSJ-T8L0-A7GY)
-- DOGE (DCaSTcvrXbdM9G9XKs33ZKZQMtF6GVZydw)
-- XMR (47M2D2xz6ygPxhSJHRgYw73mAVPJRsU1AF89i2fZZRtee1z4YnaYwHABoohfhPjq1mS81h24SxSvsBeWvRPZJgZREPh2qTE )
-- OXEN (LW46cVQKT4b5SpgBaxBAD9Pb78UFHGnY83V3jgvHT8Tc9Xscr61vuAHZdaMQqLJjof2KC5Zx6NoU5Nw5pqrS1ALs5otQ1mr)
-- [![Image of Yaktocat](https://img.shields.io/liberapay/goal/nolyoi.svg?logo=liberapay)](https://liberapay.com/nolyoi/)
-
-### Prizes
-Top 3 donors will have a spor on our homepage with their name, quote, and/or link to anything they'd like. All other doners will be listed on our donors page!
-Also, the top 2 or 3 coins with the most donations will be integrated for tipping in the site!
-
-Leaders
-1. Nimiq
-2. BCH
-3. DOGE
-
-Thank you for reading! Oh and here's some preview screen caps below!
-
 ### Screenshots of Progress
 Click the image to view full size.
 
